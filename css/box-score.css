@@ -1,0 +1,303 @@
+/*
+  Copyright © 2022 Riccardo Foglio <riccardo.fogliopara@gmail.com>
+  Free for personal use; see 'LICENSE.md' for details.
+  https://github.com/RiccardoFoglio/Stats-Project
+*/
+
+.box-score {
+  position: relative;
+  color: #494949;
+}
+
+.box-score-header {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.box-score-graphic {
+  display: flex;
+  flex: 1;
+  min-width: 1px;
+  min-height: 1px;
+  padding: 0 10px;
+}
+
+.box-score-graphic .team {
+  flex: 2;
+  min-width: 1px;
+  min-height: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box-score-graphic > * {
+  display: flex;
+  text-align: center;
+}
+
+.box-score-graphic .team img {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.box-score-graphic .team .score {
+  font-size: 40px;
+  line-height: 1.5;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.box-score-graphic .team .score.winner {
+  font-weight: bold;
+}
+
+.box-score-graphic .team .score.loser {
+  color: #767676;
+}
+
+.box-score-graphic .bracket {
+  flex: 1;
+  min-width: 1px;
+  min-height: 1px;
+  position: relative;
+}
+
+.box-score-graphic .bracket:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #cccccc;
+  margin-left: -1px;
+}
+
+.box-score-graphic .bracket span {
+  border: none;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.box-score-graphic .bracket span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  border: 0px solid #cccccc;
+  border-radius: 50%;
+  padding: 10px;
+  line-height: 1;
+  background-color: white;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.box-score-graphic .bracket span:before {
+  content: '';
+  display: block;
+  border: 1px solid #cccccc;
+  border-radius: 70% 0%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+
+.box-score-graphic .bracket span:after {
+  content: '';
+  width: 36px;
+  height: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-left: 2px solid #cccccc;
+  border-right: 2px solid #cccccc;
+}
+
+.box-score-header figcaption {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.main-heading {
+  font-size: 1.5em;
+  line-height: 1.3;
+  margin: 1em 0;
+  padding: 0;
+  border: none;
+  position: static;
+}
+
+.info-graphic table caption,
+figure.box-score-header table caption {
+  display: none !important;
+}
+
+/*THEAD*/
+figure.box-score-header table thead {
+  border-bottom: none;
+}
+
+.info-graphic table thead,
+figure.box-score-header table thead {
+  border-bottom: 2px solid black;
+  background: none;
+}
+
+/*TH*/
+.info-graphic table thead th:first-child,
+figure.box-score-header table thead th:first-child {
+  text-indent: -9999px;
+  width: 60%;
+}
+
+.info-graphic table thead th+th,
+figure.box-score-header table thead th+th {
+  text-align: right;
+}
+
+.info-graphic table thead th,
+figure.box-score-header table thead th {
+  color: black;
+  font-weight: bold;
+  padding: 0 10px;
+  font-size: 16px;
+  vertical-align: bottom;
+}
+
+/*TBODY*/
+.info-graphic table tbody tr,
+figure.box-score-header table tbody tr {
+  border-bottom: 1px solid #cccccc;
+}
+
+figure.box-score-header table tbody tr td:first-child,
+figure.box-score-header table tbody tr th:first-child {
+  border-left: 1px solid #cccccc;
+  width: 40%;
+}
+
+figure.box-score-header table tbody tr td,
+figure.box-score-header table tbody tr th {
+  border-right: 1px solid #cccccc;
+}
+
+.info-graphic table tbody td,
+figure.box-score-header table tbody td,
+.info-graphic table tbody th,
+figure.box-score-header table tbody th {
+  padding: 5px 10px;
+  text-align: left;
+  font-size: 1em;
+  color: #494949;
+}
+
+.info-graphic table tbody td+td,
+figure.box-score-header table tbody td+td,
+.info-graphic table tbody th+td,
+figure.box-score-header table tbody th+td {
+  text-align: right;
+}
+
+/*DL*/
+.football header dl,
+.sfootball header dl {
+  padding: 10px;
+  margin-top: 20px;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+
+.box-score dl {
+  margin: 0;
+  padding: 0;
+  *zoom: 1;
+}
+
+.box-score dl:after {
+  clear: both;
+}
+
+.box-score dl:before,
+.box-score dl:after {
+  content: "";
+  display: table;
+}
+
+.box-score dl.inline dt,
+.box-score dl.inline dd {
+  float: none;
+  clear: none;
+  display: inline;
+  margin-left: 0;
+}
+
+.box-score dl dt {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 0;
+}
+
+.box-score dl dt {
+  float: left;
+  clear: left;
+}
+
+.box-score dl dt,
+.box-score dl dd {
+  display: block;
+}
+
+.box-score dl.inline dd {
+  margin: 0 10px 0 2px;
+}
+
+/*SCORING SUMMARY*/
+
+.box-score table.scoring-summary tfoot tr {
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+
+.scoring-summary td:not(td:nth-child(3)){
+  text-align: center;
+}
+
+.scoring-summary th {
+  text-align: center;
+}
+
+.sidearm-table[class*="collapse"] {
+  display: block;
+  display: block;
+}
+.sidearm-table[class*="collapse"] thead {
+  display: none;
+}
+.sidearm-table[class*="collapse"] tbody,
+.sidearm-table[class*="collapse"] tfoot,
+.sidearm-table[class*="collapse"] tr,
+.sidearm-table[class*="collapse"] td,
+.sidearm-table[class*="collapse"] th,
+.sidearm-table[class*="collapse"] caption {
+  display: block;
+}
+
+.boxscore-winner::before {
+  margin-right: 5px;
+  box-sizing: border-box;
+  content: '\25B6';
+}

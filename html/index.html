@@ -5,16 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Sen:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="../css/general.css">
+  <link rel="stylesheet" href="../css/box-score.css">
+  <link rel="stylesheet" href="../css/elements.css">
   <link rel="stylesheet" href="../css/navbar.css">
+  
+  <link rel="stylesheet" href="../css/tables.css">
+  <link rel="stylesheet" href="../css/team.css">
 
   <script src="../js/index.js"></script>
 
 </head>
 <body>
+  <main class="main-content-placeholder">
   <!-- NAVBAR  -->
   <ul class="navbar">
     <a href="#" class="nav-item active" data-target="BoxScore">Box Score</a>
@@ -27,33 +38,78 @@
 
   <div class="navbar-toggle">Toggle Menu</div>
 
-  <!-- BOX BELOW, SHOW ACCORDING TO MENU -->
+  <!-- BOX BELOW, SHOW ACCORDING TO NAVBAR -->
 
 
-  <div id="BoxScore" class="content active">
+  <section id="BoxScore" class="content active">
     1
-  </div>
+  </section>
 
-  <div id="TeamStats" class="content">
+
+  <section id="TeamStats" class="content">
     2
-  </div>
+  </section>
 
-  <div id="IndividualStats" class="content">
+
+  <section id="IndividualStats" class="content">
     3
-  </div>
+  </section>
 
-  <div id="DriveChart" class="content">
+
+  <section id="DriveChart" class="content">
     4
-  </div>
+  </section>
 
-  <div id="Plays" class="content">
+  
+  <section id="Plays" class="content">
     5
-  </div>
-
-  <div id="Roster" class="content">
-    6
-  </div>
+  </section>
 
 
+  <section id="Roster" class="panel content">
+
+    <div class="row pad">
+      <h4 class="sub-heading">Player Participation</h4>
+    </div>
+
+    <div class="row">
+      <div class="large-6 columns">
+        <div class="dataTables_wrapper">
+          <table id="Home-Roster-table" class="sidearm-table overall-stats centered-caption dataTable roster">
+            <caption id="Home-Roster"></caption>
+            <thead>
+              <tr>
+                <th class="text-center">#</th>
+                <th>Player</th>
+              </tr>
+            </thead>
+            <tbody id="Home-Roster-table-body" class="highlight-hover"></tbody>
+          </table>
+        </div>
+      </div>
+          
+      <div class="large-6 columns">
+        <div class="dataTables_wrapper">
+          <table id="Away-Roster-table" class="sidearm-table overall-stats centered-caption dataTable roster">
+            <caption id="Away-Roster"></caption>
+            <thead>
+              <tr>
+                <th class="text-center">#</th>
+                <th>Player</th>
+              </tr>
+            </thead>
+            <tbody id="Away-Roster-table-body" class="highlight-hover"></tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <footer>
+    <p>Powered by: Riccardo Foglio</p>
+  </footer>
+</main>
 </body>
+
 </html>
