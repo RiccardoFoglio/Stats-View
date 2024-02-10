@@ -13,6 +13,7 @@ fetch("../data/" + filegame)
   .catch(error => console.error('Error fetching JSON:', error));
 
 
+// NAVBAR
 $(document).ready(function() {
     $(".navbar .nav-item").click(function() {
         var targetId = $(this).data("target");
@@ -67,6 +68,7 @@ $(document).ready(function() {
 }
 
 function buildTeamRoster(players, rosterTable){
+  players.sort((a, b) => a.number - b.number);
   players.forEach(player => {
     let row = $("<tr>");
     $("<td>").addClass("text-center").text(player.number).appendTo(row);
