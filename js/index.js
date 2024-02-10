@@ -10,4 +10,39 @@ fetch("../data/" + filegame)
   })
   .catch(error => console.error('Error fetching JSON:', error));
 
-  
+
+$(document).ready(function() {
+    $(".navbar .nav-item").click(function() {
+        var targetId = $(this).data("target");
+
+        $(".content").removeClass("active");
+        $("#" + targetId).addClass("active");
+
+        $(".nav-item").removeClass("active");
+        $(this).addClass("active");
+
+        // For mobile, hide the menu after clicking on an item
+        if ($(window).width() <= 600) {
+            $(".navbar").removeClass("active");
+        }
+    });
+
+    // Toggle navbar menu for mobile
+    $(".navbar-toggle").click(function() {
+        $(".navbar").toggleClass("active");
+    });
+
+    // Close menu when clicking outside on mobile
+    $(document).click(function(e) {
+        if (!$(e.target).closest(".navbar-toggle").length && !$(e.target).closest(".navbar").length) {
+            $(".navbar").removeClass("active");
+        }
+    });
+
+    // Close menu on window resize
+    $(window).resize(function() {
+        if ($(window).width() > 600) {
+            $(".navbar").removeClass("active");
+        }
+    });
+});

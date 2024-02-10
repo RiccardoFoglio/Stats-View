@@ -1,18 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-
-    <link rel="stylesheet" href="../css/general.css">
-
-    <script src="../js/index.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
 
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="../css/general.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+
+  <script src="../js/index.js"></script>
 
 </head>
 <body>
-    
+  <!-- NAVBAR  -->
+  <ul class="navbar">
+    <a href="#" class="nav-item active" data-target="BoxScore">Box Score</a>
+    <a href="#" class="nav-item" data-target="TeamStats">Team</a>
+    <a href="#" class="nav-item" data-target="IndividualStats">Individual</a>
+    <a href="#" class="nav-item" data-target="DriveChart">Drive Chart</a>
+    <a href="#" class="nav-item" data-target="Plays">Play-by-Play</a>
+    <a href="#" class="nav-item" data-target="Roster">Roster</a>
+  </ul>
+
+  <div class="navbar-toggle">Toggle Menu</div>
+
+  <!-- BOX BELOW, SHOW ACCORDING TO MENU -->
+
+
+  <div id="BoxScore" class="content active">
+    1
+  </div>
+
+  <div id="TeamStats" class="content">
+    2
+  </div>
+
+  <div id="IndividualStats" class="content">
+    3
+  </div>
+
+  <div id="DriveChart" class="content">
+    4
+  </div>
+
+  <div id="Plays" class="content">
+    5
+  </div>
+
+  <div id="Roster" class="content">
+    6
+  </div>
+
+
 </body>
 </html>

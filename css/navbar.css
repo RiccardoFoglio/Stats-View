@@ -1,0 +1,41 @@
+ .content {
+     display: none;
+ }
+
+ .content.active {
+     display: block;
+ }
+
+ .navbar {
+     list-style-type: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ .nav-item {
+     cursor: pointer;
+ }
+
+ .navbar-toggle {
+     display: none;
+ }
+
+ @media screen and (max-width: 600px) {
+     .navbar {
+         display: none;
+     }
+
+     .navbar-toggle {
+         display: block;
+     }
+
+     .navbar.active {
+         display: block;
+     }
+
+     .nav-item {
+         display: block;
+         padding: 10px;
+         border-bottom: 1px solid #ccc;
+     }
+ }
