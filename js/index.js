@@ -5,6 +5,7 @@ fetch("../data/" + filegame)
   .then(data => {
     // Do something with the JSON data
     
+    buildBoxScore(data);
     buildRoster(data);
 
 
@@ -50,6 +51,48 @@ $(document).ready(function() {
     });
 });
 
+// BOX SCORE
+
+function buildBoxScore(game){
+  $(document).ready(function(){
+
+    //box-score graphic
+    $("#awayLogo").attr("src", '../logos/'+ game.VisitingTeam.Code +'.png');
+    $("#awayLogo").attr("alt", game.VisitingTeam.Name);
+    $("#homeLogo").attr("src", '../logos/'+ game.HomeTeam.Code +'.png');
+    $("#homeLogo").attr("alt", game.HomeTeam.Name);
+
+    $("#homeScore").html(game.gameTeamStatsHomeTeam.ScoreTotal);
+    $("#awayScore").html(game.gameTeamStatsVisitingTeam.ScoreTotal);
+
+    const isHomeTeamWinner = game.gameTeamStatsHomeTeam.ScoreTotal > game.gameTeamStatsVisitingTeam.ScoreTotal;
+    $("#homeScore").addClass(isHomeTeamWinner ? "winner" : "loser");
+    $("#awayScore").addClass(isHomeTeamWinner ? "loser" : "winner");
+    
+    //box-score-graphic-caption TITLE
+    $("#gameTitle").html(`${game.HomeTeam.Name} (${game.RecordHomeTeam}) -VS- ${game.VisitingTeam.Name} (${game.RecordVisitingTeam})`).addClass("main-heading text-center text-uppercase");
+
+    //box-score-graphic-caption TABLE
+
+    //TODO header: blank, quarters and FINAL
+    $("#score-qrt-table-head tr")
+
+
+
+    //TODO row: name, scores, FINAL
+    $("#home-score-qrt-tr")
+
+    $("#away-score-qrt-tr")
+
+    //TODO  General info list
+
+    //TODO  Scoring Summary
+
+    //TODO  Refs
+
+
+  })}
+
 
 // ROSTER
 function buildRoster(game){
@@ -64,8 +107,8 @@ $(document).ready(function() {
 
     buildTeamRoster(game.HomeTeam.Players, homeRosterTable);
     buildTeamRoster(game.VisitingTeam.Players, awayRosterTable);
-  })
-}
+    })}
+
 
 function buildTeamRoster(players, rosterTable){
   players.sort((a, b) => a.number - b.number);

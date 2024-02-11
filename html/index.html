@@ -13,6 +13,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="stylesheet" href="../css/general.css">
   <link rel="stylesheet" href="../css/box-score.css">
   <link rel="stylesheet" href="../css/elements.css">
@@ -26,6 +28,9 @@
 </head>
 <body>
   <main class="main-content-placeholder">
+    <article class="box-score football sidearm-responsive">
+
+    </article>
   <!-- NAVBAR  -->
   <ul class="navbar">
     <a href="#" class="nav-item active" data-target="BoxScore">Box Score</a>
@@ -41,8 +46,59 @@
   <!-- BOX BELOW, SHOW ACCORDING TO NAVBAR -->
 
 
-  <section id="BoxScore" class="content active">
-    1
+  <section id="box-score" aria-label="Box Score" aria-label="Box Score" role="tabpanel"
+    class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+    <header class="panel">
+      <div class="row pad">
+        <figure class="box-score-header">
+          <div class="box-score-graphic" id="box-score-graphic">
+            <div class="team home text-center">
+              <div><img id="homeLogo" src="" alt=""></div>
+              <span id="homeScore" class="score"></span>
+            </div>
+            <div class="bracket">
+              <span>vs</span>
+            </div>
+            <div class="team away text-center">
+              <div><img id="awayLogo" src="" alt=""></div>
+              <span id="awayScore" class="score"></span>
+            </div>
+          </div>
+          <figcaption id="box-score-graphic-caption">
+            <!--title h4 element-->
+            <h4 id="gameTitle"></h4>
+            <table class="sidearm-table highlight-hover" id="score-qrt-table">
+              <thead id="score-qrt-table-head">
+                <tr></tr>
+              </thead>
+              <tbody id="score-qrt-table-body">
+                <tr id="home-score-qrt-tr"></tr>
+                <tr id="away-score-qrt-tr"></tr>
+              </tbody>
+            </table>
+          </figcaption>
+        </figure>
+        <dl id="general-info" class="text-center inline">
+        </dl>
+      </div>
+    </header>
+    <section class="panel" aria-label="Scoring Summary">
+      <h4 class="hide">Scoring Summary</h4>
+      <div class="row">
+        <div class="columns">
+          <table id="scoring-summary-table" class="sidearm-table scoring-summary collapse-on-medium highlight-hover">
+            <caption>Scoring Summary</caption>
+            <thead id="scoring-summary-table-head"></thead>
+            <tbody id="scoring-summary-table-body"></tbody>
+            <tfoot id="scoring-summary-table-foot"></tfoot>
+          </table>
+          <br>
+          <table id="refs-table" class="sidearm-table special-stats" style="margin-top: 10px;">
+            <tfoot id="refs-table-foot"></tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
   </section>
 
 
