@@ -1,5 +1,15 @@
--[] header: blank, quarters and FINAL
--[] row: name, scores, FINAL
--[] General info list
+BOX SCORE
+
+-[x] header: blank, quarters and FINAL
+-[x] row: name, scores, FINAL
+-[x] General info list
 -[] Scoring Summary
 -[] Refs
+
+TEAM
+
+INDIVIDUAL
+
+DRIVE CHART
+
+PLAY-BY-PLAY
