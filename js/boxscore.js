@@ -75,7 +75,39 @@ export default function buildBoxScore(game){
 
     //TODO  Scoring Summary
 
-    //TODO  Refs
+    // check algorithm from DEVELOPER !!!!!!!!!!!!!!!!
+
+    // Refs
+    const officials = [
+        {label: 'Referee:' , value: game.Referee},
+        {label: 'Umpire:' , value: game.Umpire },
+        {label: 'Linesman:' , value: game.Linesman },
+        {label: 'LineJudge:' , value: game.LineJudge },
+        {label: 'BackJudge:' , value: game.BackJudge },
+        {label: 'FieldJudge:' , value: game.FieldJudge },
+        {label: 'SideJudge:' , value: game.SideJudge },
+        {label: 'CenterJudge:' , value: game.CenterJudge },
+        {label: 'DownJudge:' , value: game.DownJudge },
+        {label: 'Scorer:' , value: game.Scorer },
+        {label: 'TimeKeeper:' , value: game.TimeKeeper }
+    ];
+
+    // Chunk the officials array into groups of three
+    const chunks = chunkArray(officials, 3);
+
+    // Iterate over each chunk and create table rows
+    chunks.forEach(chunk => {
+        const rowEntry = $('<tr></tr>');
+
+        chunk.forEach(official => {
+            const bold = $('<b></b>').text(official.label);
+            const span = $('<span></span>').text(` ${official.value}`);
+            rowEntry.append($('<td></td>').append(bold, span));
+        });
+
+        $('#refs-table-foot').append(rowEntry);
+    });
+
 
 })}
 
@@ -118,3 +150,12 @@ function getDuration(startString, endString){
   const hours = Math.floor((durationInSeconds % (24 * 60 * 60)) / (60 * 60));
   return `${hours.toString().padStart(1, '0')}:${minutes.toString().padStart(2, '0')}`;
 }
+
+// Function to chunk the officials array into groups of three
+    function chunkArray(array, size) {
+        const chunkedArray = [];
+        for (let i = 0; i < array.length; i += size) {
+            chunkedArray.push(array.slice(i, i + size));
+        }
+        return chunkedArray;
+    }
