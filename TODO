@@ -1,17 +1,14 @@
 BOX SCORE
-
--[x] header: blank, quarters and FINAL
--[x] row: name, scores, FINAL
--[x] General info list
 -[] Scoring Summary (?)
--[x] Refs
 
 TEAM
 -[] fix possession times
 
-
 INDIVIDUAL
+-[] all
 
 DRIVE CHART
+-[] all
 
 PLAY-BY-PLAY
+-[] all
