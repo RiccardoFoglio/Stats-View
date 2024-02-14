@@ -60,6 +60,9 @@ export default function buildTeamStats(game){
     dataRow('INT: Total - Yds - TDs', `${HStats.IntRetNumber}-${HStats.IntRetYds}-${HStats.IntRetTD}`, `${AStats.IntRetNumber}-${AStats.IntRetYds}-${AStats.IntRetTD}`, table);
     dataRow('Fumble: Total - Yds - TDs', `${HStats.FumbRecoverNumber}-${HStats.FumbRetYds}-${HStats.FumbRetTD}`, `${AStats.FumbRecoverNumber}-${AStats.FumbRetYds}-${AStats.FumbRetTD}`, table);
 
+
+
+
     headerRow('POSSESSION', table)
     dataRow('Total Time', getTime(HStats.Possession.$numberLong), getTime(AStats.Possession.$numberLong), table);    
     dataRow('1st Quarter', getTime(HStats.PeriodPossession[0].$numberLong), getTime(AStats.PeriodPossession[0].$numberLong), table);
@@ -67,6 +70,9 @@ export default function buildTeamStats(game){
     dataRow('3rd Quarter', getTime(HStats.PeriodPossession[2].$numberLong), getTime(AStats.PeriodPossession[2].$numberLong), table);
     dataRow('4th Quarter', getTime(HStats.PeriodPossession[3].$numberLong), getTime(AStats.PeriodPossession[3].$numberLong), table);
 
+
+
+    
     headerRow('RED ZONE', table)
     dataRow('Rush TDs', HStats.RedZoneRushTD, AStats.RedZoneRushTD, table);
     dataRow('Pass TDs', HStats.RedZonePassTD, AStats.RedZonePassTD, table);

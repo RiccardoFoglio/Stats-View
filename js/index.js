@@ -1,7 +1,9 @@
 import buildBoxScore from "../js/boxscore.js";
 import buildRoster from "../js/roster.js";
 import buildTeamStats from "../js/teamStats.js";
-
+import buildIndStats from "../js/indStats.js";
+import buildDriveChart from "../js/driveChart.js";
+import buildPlays from "../js/plays.js";
 
 const filegame = "SEA @ GIT - 1705278755.game";
 
@@ -12,6 +14,9 @@ fetch("../data/" + filegame)
     
     buildBoxScore(data);
     buildTeamStats(data);
+    buildIndStats(data);
+    buildDriveChart(data);
+    buildPlays(data);
 
     buildRoster(data);
 
