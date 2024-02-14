@@ -4,9 +4,11 @@ BOX SCORE
 -[x] row: name, scores, FINAL
 -[x] General info list
 -[] Scoring Summary (?)
--[] Refs
+-[x] Refs
 
 TEAM
+-[] fix possession times
+
 
 INDIVIDUAL
 

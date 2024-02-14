@@ -1,5 +1,6 @@
 import buildBoxScore from "../js/boxscore.js";
 import buildRoster from "../js/roster.js";
+import buildTeamStats from "../js/teamStats.js";
 
 
 const filegame = "SEA @ GIT - 1705278755.game";
@@ -10,7 +11,10 @@ fetch("../data/" + filegame)
     // Do something with the JSON data
     
     buildBoxScore(data);
+    buildTeamStats(data);
+
     buildRoster(data);
+
   })
   .catch(error => console.error('Error fetching JSON:', error));
 
