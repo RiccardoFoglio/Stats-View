@@ -60,18 +60,12 @@ export default function buildTeamStats(game){
     dataRow('INT: Total - Yds - TDs', `${HStats.IntRetNumber}-${HStats.IntRetYds}-${HStats.IntRetTD}`, `${AStats.IntRetNumber}-${AStats.IntRetYds}-${AStats.IntRetTD}`, table);
     dataRow('Fumble: Total - Yds - TDs', `${HStats.FumbRecoverNumber}-${HStats.FumbRetYds}-${HStats.FumbRetTD}`, `${AStats.FumbRecoverNumber}-${AStats.FumbRetYds}-${AStats.FumbRetTD}`, table);
 
-
-
-
     headerRow('POSSESSION', table)
     dataRow('Total Time', getTime(HStats.Possession.$numberLong), getTime(AStats.Possession.$numberLong), table);    
     dataRow('1st Quarter', getTime(HStats.PeriodPossession[0].$numberLong), getTime(AStats.PeriodPossession[0].$numberLong), table);
     dataRow('2nd Quarter', getTime(HStats.PeriodPossession[1].$numberLong), getTime(AStats.PeriodPossession[1].$numberLong), table);
     dataRow('3rd Quarter', getTime(HStats.PeriodPossession[2].$numberLong), getTime(AStats.PeriodPossession[2].$numberLong), table);
     dataRow('4th Quarter', getTime(HStats.PeriodPossession[3].$numberLong), getTime(AStats.PeriodPossession[3].$numberLong), table);
-
-
-
     
     headerRow('RED ZONE', table)
     dataRow('Rush TDs', HStats.RedZoneRushTD, AStats.RedZoneRushTD, table);
@@ -119,7 +113,10 @@ function dataRow(label, dataHome, dataAway, container){
 }
 
 function getTime(timeRaw) {
-  // Convert milliseconds to seconds
-  //console.log(timeRaw);
-  //console.log(timeRaw/(1000*10000) / 60);
+  const seconds = timeRaw / 10000000;
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60);
+
+  return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`
+
 }
