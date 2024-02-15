@@ -14,6 +14,7 @@ fetch("../data/" + filegame)
     
     buildBoxScore(data);
     buildTeamStats(data);
+    
     buildIndStats(data);
     buildDriveChart(data);
     buildPlays(data);

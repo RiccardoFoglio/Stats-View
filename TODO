@@ -1,14 +1,11 @@
 BOX SCORE
 -[] Scoring Summary (?)
 
-TEAM
--[] fix possession times
-
 INDIVIDUAL
--[] all
-
-DRIVE CHART
 -[] all
 
 PLAY-BY-PLAY
 -[] all
+
+CSS
+-[] fix all tables and navbars

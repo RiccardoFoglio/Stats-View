@@ -1,3 +1,5 @@
+import {getFormattedDate, getFormattedTime, getDuration} from '../js/auxiliaries.js'
+
 export default function buildBoxScore(game){
   
     $(document).ready(function(){
@@ -130,25 +132,6 @@ function createTableRow(team, scores, final, isWinner){
     row.append(`<td>${final}</td>`);
 
     return row;
-}
-
-function getFormattedDate(dateString){
-  const date = new Date(dateString);
-  return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
-}
-
-function getFormattedTime(dateString){
-  const date = new Date(dateString);
-  return `${date.getHours()}:${date.getMinutes()}`
-}
-
-function getDuration(startString, endString){
-  const startDate = new Date(startString);
-  const endDate = new Date(endString);
-  const durationInSeconds = (endDate - startDate) / 1000;
-  const minutes = Math.floor((durationInSeconds % (60 * 60)) / 60);
-  const hours = Math.floor((durationInSeconds % (24 * 60 * 60)) / (60 * 60));
-  return `${hours.toString().padStart(1, '0')}:${minutes.toString().padStart(2, '0')}`;
 }
 
 // Function to chunk the officials array into groups of three
