@@ -1,11 +1,8 @@
 BOX SCORE
 -[] Scoring Summary (?)
 
-INDIVIDUAL
--[] missing FG table
-
-PLAY-BY-PLAY
--[x] all
-
 CSS
 -[] fix all tables and navbars
+-[] make responsive
+
+-[] add sorting by header
