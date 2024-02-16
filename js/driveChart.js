@@ -35,15 +35,11 @@ export default function buildDriveChart(game){
     const homeDrives = $("#HomeDrives tbody");
     const awayDrives = $("#AwayDrives tbody");
 
-
-
     // insert drive in tables
     game.DriveChart.forEach(drive => {
       driveRow(drive, allDrives, game);
       drive.PossessionTeam === game.HomeTeam.Code ? driveRow(drive, homeDrives, game) : driveRow(drive, awayDrives, game);
     })
-
-
 
 })}
 
@@ -67,8 +63,6 @@ function driveRow(drive, table, game){
 
     // Append the row to the table using jQuery
     table.append(row);
-
-
 
 }
 
