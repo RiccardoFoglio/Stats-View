@@ -26,3 +26,20 @@ export function getTime(timeRaw) {
 
     return minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
 }
+
+export function getAverage(total, attempts){
+  if (attempts)
+    return (total/attempts).toFixed(1)
+  else 
+    return 0
+}
+
+export function checkLongest(length, game){
+    const final = length < (-game.gameOptions.FieldLength) ? 0 : length;
+    return final
+}
+
+export function getQuarter(number){
+  const conversionTable = ['', '1st', '2nd', '3rd', '4th', 'OT']
+  return conversionTable[number]
+}

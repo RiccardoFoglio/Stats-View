@@ -6,6 +6,7 @@ import buildDriveChart from "../js/driveChart.js";
 import buildPlays from "../js/plays.js";
 
 const filegame = "SEA @ GIT - 1705278755.game";
+//const filegame = "GIT @ RED - 1708103843.game";
 
 fetch("../data/" + filegame)
   .then(response => response.json())

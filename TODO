@@ -2,10 +2,10 @@ BOX SCORE
 -[] Scoring Summary (?)
 
 INDIVIDUAL
--[] all
+-[] missing FG table
 
 PLAY-BY-PLAY
--[] all
+-[x] all
 
 CSS
 -[] fix all tables and navbars
