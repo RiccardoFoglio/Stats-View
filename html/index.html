@@ -15,13 +15,14 @@
 
   <link rel="stylesheet" href="../css/navbar.css">
 
-
-
-  <link rel="stylesheet" href="../css/general.css">
   <link rel="stylesheet" href="../css/box-score.css">
   <link rel="stylesheet" href="../css/elements.css">
+  <link rel="stylesheet" href="../css/general.css">
+  <link rel="stylesheet" href="../css/responsive2.css">
   <link rel="stylesheet" href="../css/tables.css">
   <link rel="stylesheet" href="../css/team.css">
+  
+
 
   
 
@@ -33,7 +34,7 @@
   <main class="main-content-placeholder">
     <article class="box-score football sidearm-responsive">
 
-    </article>
+    
   <!-- NAVBAR  -->
   <ul class="navbar">
     <a href="#" class="nav-item active" data-target="BoxScore">Box Score</a>
@@ -47,7 +48,6 @@
   <div class="navbar-toggle">Toggle Menu</div>
 
   <!-- BOX BELOW, SHOW ACCORDING TO NAVBAR -->
-
 
   <section id="BoxScore" aria-label="Box Score" aria-label="Box Score" role="tabpanel"
     class="ui-tabs-panel ui-corner-bottom ui-widget-content content active">
@@ -68,7 +68,7 @@
             </div>
           </div>
           <figcaption id="box-score-graphic-caption">
-            <h4 id="gameTitle"></h4>
+            <h4 class="main-heading text-center text-uppercase" id="gameTitle"></h4>
             <table class="sidearm-table highlight-hover" id="score-qrt-table">
               <thead id="score-qrt-table-head">
                 <tr></tr>
@@ -100,15 +100,14 @@
     </section>
   </section>
 
-
-  <section id="TeamStats" class="content">
-    <div class="row">
+  <section id="TeamStats" class="panel ui-tabs-panel ui-corner-bottom ui-widget-content content">
+    <div class="panel row">
       <div class="columns">
         <table id="teamTotalsComplete-table" class="sidearm-table overall-stats highlight-hover full">
           <caption>Team Statistics</caption>
           <thead id="teamTotalsComplete-table-head">
             <th></th>
-            <th id="homeCode" class="text-center" scope="col">3</th>
+            <th id="homeCode" class="text-center" scope="col"></th>
             <th id="awayCode" class="text-center" scope="col"></th>
           </thead>
           <tbody id="teamTotalsComplete-table-body"></tbody>
@@ -117,17 +116,16 @@
     </div>
   </section>
 
-
-  <section id="IndividualStats" class="content">
+  <section id="IndividualStats" class="panel ui-tabs-panel ui-corner-bottom ui-widget-content content">
     
-    <section class="" aria-label="Offensive">
+    <section class="panel" aria-label="Offensive">
       <div>
-        <h4 class="">Offensive</h4>
+        <h4 class="sub-heading">Offensive</h4>
         <section id="individual-passing">
           <div class="row">
             <div class="large-6 columns">
-              <div class="">
-                <table id="passingStatsHome-table">
+              <div class="dataTable_wrapper">
+                <table id="passingStatsHome-table" class="sidearm-table overall-stats centered-caption dataTable highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr role="row">
@@ -147,8 +145,8 @@
               </div>
             </div>
             <div class="large-6 columns">
-              <div class="">
-                <table id="passingStatsAway-table">
+              <div class="dataTable_wrapper">
+                <table id="passingStatsAway-table" class="sidearm-table overall-stats centered-caption dataTable highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr role="row">
@@ -173,7 +171,7 @@
           <div class="row">
             <div class="large-6 columns">
               <div class="dataTables_wrapper">
-                <table id="rushingStatsHome-table">
+                <table id="rushingStatsHome-table" class="sidearm-table overall-stats centered-caption dataTable highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr role="row">
@@ -194,7 +192,7 @@
             </div>
             <div class="large-6 columns">
               <div class="dataTables_wrapper">
-                <table id="rushingStatsAway-table">
+                <table id="rushingStatsAway-table" class="sidearm-table overall-stats centered-caption dataTable highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr role="row">
@@ -218,8 +216,8 @@
         <section id="individual-receiving">
           <div class="row">
             <div class="large-6 columns">
-              <div class="">
-                <table id="receivingStatsHome-table">
+              <div class="dataTables_wrapper">
+                <table id="receivingStatsHome-table" class="sidearm-table overall-stats centered-caption dataTable highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr role="row">
@@ -236,8 +234,8 @@
               </div>
             </div>
             <div class="large-6 columns">
-              <div class="">
-                <table id="receivingStatsAway-table">
+              <div class="dataTables_wrapper">
+                <table id="receivingStatsAway-table" class="sidearm-table overall-stats centered-caption dataTable highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr role="row">
@@ -258,8 +256,8 @@
         <section id="individual-allpurpose">
           <div class="row">
             <div class="large-6 columns">
-              <div class="">
-                <table id="allPurposeStatsHome-table">
+              <div class="dataTables_wrapper">
+                <table id="allPurposeStatsHome-table" class="sidearm-table overall-stats centered-caption dataTable highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr role="row">
@@ -278,8 +276,8 @@
               </div>
             </div>
             <div class="large-6 columns">
-              <div class="">
-                <table id="allPurposeStatsAway-table">
+              <div class="dataTables_wrapper">
+                <table id="allPurposeStatsAway-table" class="sidearm-table overall-stats centered-caption dataTable highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr role="row">
@@ -304,10 +302,9 @@
     
     <section class="panel" aria-label="Defensive">
       <div>
-        <h4 class="">Defensive</h4>
-        <div class="">
+        <h4 class="sub-heading">Defensive</h4>
+        <div class="sidearm-responsive-tabs ui-tabs ui-corner-all ui-widget ui-widget-content">
           
-          <!-- 
           <ul class="navbar-nav hide-on-medium-down" id="defenseNavbar">
             <li class="nav-item active"><a id="AwayDefense_button" href="#AwayDefense" onclick="return false"></a></li>
             <li class="nav-item"><a id="HomeDefense_button" href="#HomeDefense" onclick="return false"></a></li>
@@ -318,26 +315,30 @@
             <option value="#AwayDefense" id="AwayDefense_option"></option>
             <option value="#HomeDefense" id="HomeDefense_option"></option>
           </select>
-          -->
+          
 
           <section id="HomeDefense">
             <h5 class="sub-heading"></h5>
-            <table id="DefenseTableH" class="">
+            <table id="DefenseTableH" class="sidearm-table overall-stats highlight-hover">
               <thead>
                 <tr role="row">
-                  <th scope="col" class="">##</th>
-                  <th scope="col" class="">Player</th>
-                  <th scope="col" class="">Solo</th>
-                  <th scope="col" class="">Ast</th>
-                  <th scope="col" class="">Tot</th>
-                  <th scope="col" class="">TFL/Yds</th>
-                  <th scope="col" class="">Sack/Yds</th>
-                  <th scope="col" class="">FF</th>
-                  <th scope="col" class="">FR-Yds</th>
-                  <th scope="col" class="">INT</th>
-                  <th scope="col" class="">BrUp</th>
-                  <th scope="col" class="">Blkd</th>
-                  <th scope="col" class="">QH</th>
+                  <th scope="col" class="text-center">##</th>
+                  <th scope="col" class="text-center">Player</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">Solo</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">Ast</th>
+                  <th scope="col" class="text-center">Tot</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">TFL/Yds</th>
+                  <th scope="col" class="text-center hide-on-medium">TFL</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">Sack/Yds</th>
+                  <th scope="col" class="text-center hide-on-medium">Sacks</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">FF</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">FR-Yds</th>
+                  <th scope="col" class="text-center hide-on-medium">Fumbl</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">INT</th>
+                  <th scope="col" class="text-center hide-on-medium">INT</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">BrUp</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">Blkd</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">QH</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -346,22 +347,26 @@
 
           <section id="AwayDefense">
             <h5 class=""></h5>
-            <table id="DefenseTableV" class="">
+            <table id="DefenseTableV" class="sidearm-table overall-stats highlight-hover">
               <thead>
                 <tr role="row">
-                  <th scope="col" class="">##</th>
-                  <th scope="col" class="">Player</th>
-                  <th scope="col" class="">Solo</th>
-                  <th scope="col" class="">Ast</th>
-                  <th scope="col" class="">Tot</th>
-                  <th scope="col" class="">TFL/Yds</th>
-                  <th scope="col" class="">Sack/Yds</th>
-                  <th scope="col" class="">FF</th>
-                  <th scope="col" class="">FR-Yds</th>
-                  <th scope="col" class="">INT</th>
-                  <th scope="col" class="">BrUp</th>
-                  <th scope="col" class="">Blkd</th>
-                  <th scope="col" class="">QH</th>
+                  <th scope="col" class="text-center">##</th>
+                  <th scope="col" class="text-center">Player</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">Solo</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">Ast</th>
+                  <th scope="col" class="text-center">Tot</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">TFL/Yds</th>
+                  <th scope="col" class="text-center hide-on-medium">TFL</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">Sack/Yds</th>
+                  <th scope="col" class="text-center hide-on-medium">Sacks</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">FF</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">FR-Yds</th>
+                  <th scope="col" class="text-center hide-on-medium">Fumbl</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">INT</th>
+                  <th scope="col" class="text-center hide-on-medium">INT</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">BrUp</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">Blkd</th>
+                  <th scope="col" class="text-center hide-on-x-small-down">QH</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -377,8 +382,8 @@
         <section id="individual-punting">
           <div class="row">
             <div class="large-6 columns">
-              <div class="">
-                <table id="puntingStatsHome-table">
+              <div class="dataTable_wrapper">
+                <table id="puntingStatsHome-table" class="sidearm-table overall-stats centered-caption highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr>
@@ -398,8 +403,8 @@
               </div>
             </div>
             <div class="large-6 columns">
-              <div class="">
-                <table id="puntingStatsAway-table">
+              <div class="dataTable_wrapper">
+                <table id="puntingStatsAway-table" class="sidearm-table overall-stats centered-caption highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr>
@@ -423,8 +428,8 @@
         <section id="individual-allreturns">
           <div class="row">
             <div class="large-6 columns">
-              <div class="">
-                <table id="allReturnsStatsHome-table" >
+              <div class="dataTable_wrapper">
+                <table id="allReturnsStatsHome-table" class="sidearm-table overall-stats centered-caption highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr>
@@ -452,8 +457,8 @@
               </div>
             </div>
             <div class="large-6 columns">
-              <div class="">
-                <table id="allReturnsStatsAway-table">
+              <div class="dataTable_wrapper">
+                <table id="allReturnsStatsAway-table" class="sidearm-table overall-stats centered-caption highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr>
@@ -485,8 +490,8 @@
         <section id="individual-fieldgoals">
           <div class="row">
             <div class="large-6 columns">
-              <div class="">
-                <table id="fieldGoalStatsHome-table">
+              <div class="dataTable_wrapper">
+                <table id="fieldGoalStatsHome-table" class="sidearm-table overall-stats centered-caption highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr>
@@ -503,8 +508,8 @@
               </div>
             </div>
             <div class="large-6 columns">
-              <div class="">
-                <table id="fieldGoalStatsAway-table">
+              <div class="dataTable_wrapper">
+                <table id="fieldGoalStatsAway-table" class="sidearm-table overall-stats centered-caption highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr>
@@ -526,8 +531,8 @@
         <section id="individual-kickoffs">
           <div class="row">
             <div class="large-6 columns">
-              <div class="">
-                <table id="kickoffStatsHome-table">
+              <div class="dataTable_wrapper">
+                <table id="kickoffStatsHome-table" class="sidearm-table overall-stats centered-caption highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr>
@@ -547,7 +552,7 @@
             </div>
             <div class="large-6 columns">
               <div class="dataTable_wrapper">
-                <table id="kickoffStatsAway-table">
+                <table id="kickoffStatsAway-table" class="sidearm-table overall-stats centered-caption highlight-hover">
                   <caption></caption>
                   <thead>
                     <tr>
@@ -571,7 +576,6 @@
 
   </section>
 
-
   <section id="DriveChart" class="panel content">
     <div>
       <h3 class="sub-heading">Drive Chart</h3>
@@ -583,32 +587,88 @@
           <li class="nav-item"><a id="awayDrive_button" href="#AwayDrives" onclick="return false"></a></li>
         </ul>
         
-        <!--  RESPONSIVE NAVBAR
         <select id="drives-select" class="ui-tabs-select hide-on-large" onchange="update('drives-select')">
-          <option value="#all-drives">All</option>
-          <option value="#away-drives" id="awayDrive_option"></option>
-          <option value="#home-drives" id="homeDrive_option"></option>
+          <option value="#allDrives">All</option>
+          <option value="#HomeDrives" id="homeDrive_option"></option>
+          <option value="#AwayDrives" id="awayDrive_option"></option>
         </select>
-        -->
+      
 
-        <section id="allDrives" class="">
-          <table id="allDrivesTable" class="">
-            <thead></thead>
-            <tbody id="driveQuarterTable-body"></tbody>
+        <section id="allDrives" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+          <table id="allDrivesTable" class="sidearm-table overall-stats highlight-hover collapse-on-medium">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="text-center" colspan="4">Drive Started</th>
+                <th class="text-center" colspan="3">Drive Ended</th>
+                <th class="text-center" colspan="2">Consumed</th>
+              </tr>
+              <tr>
+                <th class="text-center">Team</th>
+                <th class="text-center">Qtr</th>
+                <th class="text-center">Spot</th>
+                <th class="text-center">Time</th>
+                <th class="text-center">Obtained</th>
+                <th class="text-center">Spot</th>
+                <th class="text-center">Time</th>
+                <th class="text-center">How Lost</th>
+                <th class="text-center">Pl-Yds</th>
+                <th class="text-center">TOP</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
           </table>
         </section>
   
-        <section id="HomeDrives" class="">
-          <table id="HomeDrivesTable" class="">
-            <thead></thead>
-            <tbody id="driveTableAway-body"></tbody>
+        <section id="HomeDrives" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+          <table id="HomeDrivesTable" class="sidearm-table overall-stats highlight-hover collapse-on-medium">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="text-center" colspan="4">Drive Started</th>
+                <th class="text-center" colspan="3">Drive Ended</th>
+                <th class="text-center" colspan="2">Consumed</th>
+              </tr>
+              <tr>
+                <th class="text-center">Team</th>
+                <th class="text-center">Qtr</th>
+                <th class="text-center">Spot</th>
+                <th class="text-center">Time</th>
+                <th class="text-center">Obtained</th>
+                <th class="text-center">Spot</th>
+                <th class="text-center">Time</th>
+                <th class="text-center">How Lost</th>
+                <th class="text-center">Pl-Yds</th>
+                <th class="text-center">TOP</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
           </table>
         </section>
   
-        <section id="AwayDrives" class="">
-          <table id="AwayDrivesTable" class="">
-            <thead></thead>
-            <tbody id="driveTableHome-body"></tbody>
+        <section id="AwayDrives" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+          <table id="AwayDrivesTable" class="sidearm-table overall-stats highlight-hover collapse-on-medium">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="text-center" colspan="4">Drive Started</th>
+                <th class="text-center" colspan="3">Drive Ended</th>
+                <th class="text-center" colspan="2">Consumed</th>
+              </tr>
+              <tr>
+                <th class="text-center">Team</th>
+                <th class="text-center">Qtr</th>
+                <th class="text-center">Spot</th>
+                <th class="text-center">Time</th>
+                <th class="text-center">Obtained</th>
+                <th class="text-center">Spot</th>
+                <th class="text-center">Time</th>
+                <th class="text-center">How Lost</th>
+                <th class="text-center">Pl-Yds</th>
+                <th class="text-center">TOP</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
           </table>
         </section>
       </div>
@@ -616,10 +676,11 @@
   </section>
   
 
-  <section id="Plays" class="content">
+  <section id="Plays" class="panel content">
     <div>
       <h4 class="sub-heading">Play By Play</h4>
       <div class="sidearm-responsive-tabs ui-tabs ui-corner-all ui-widget ui-widget-content">
+        
         <ul class="navbar-nav hide-on-medium-down" id="playsNavbar">
           <li class="nav-item active"><a href="#1st" onclick="return false">1ST</a></li>
           <li class="nav-item"><a href="#2nd" onclick="return false">2ND</a></li>
@@ -628,7 +689,6 @@
           <li class="nav-item"><a href="#ot" onclick="return false">OT</a></li>
         </ul>
         
-        <!-- NAVBAR
         <select id="plays-select" class="ui-tabs-select hide-on-large" onchange="update('plays-select')">
           <option value="#1st">1st</option>
           <option value="#2nd">2nd</option>
@@ -636,33 +696,35 @@
           <option value="#4th">4th</option>
           <option value="#ot">OT</option>
         </select>
-      -->
 
-        <section id="firstQtrPlays" class="">
-          <table>
+
+        <section id="firstQtrPlays" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+          <table class="sidearm-table overall-stats plays highlight-hover collapse-on-small">
             <tbody></tbody>
           </table>
         </section>
-        <section id="secondQtrPlays" class="">
-          <table>
+        <section id="secondQtrPlays" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+          <table class="sidearm-table overall-stats plays highlight-hover collapse-on-small">
             <tbody></tbody>
           </table>
         </section>
-        <section id="thirdQtrPlays" class="">
-          <table>
+        <section id="thirdQtrPlays" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+          <table class="sidearm-table overall-stats plays highlight-hover collapse-on-small">
             <tbody></tbody>
           </table>
         </section>
-        <section id="fourthQtrPlays" class="">
-          <table>
+        <section id="fourthQtrPlays" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+          <table class="sidearm-table overall-stats plays highlight-hover collapse-on-small">
             <tbody></tbody>
           </table>
         </section>
-        <section id="overtimePlays" class="">
-          <table>
+        <section id="overtimePlays" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+          <table class="sidearm-table overall-stats plays highlight-hover collapse-on-small">
             <tbody></tbody>
           </table>
         </section>
+      </div>
+    </div>
   </section>
 
 
@@ -709,6 +771,7 @@
   <footer>
     <p>Powered by: Riccardo Foglio</p>
   </footer>
+</article>
 </main>
 </body>
 

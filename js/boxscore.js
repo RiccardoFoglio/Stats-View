@@ -129,7 +129,7 @@ function createTableRow(team, scores, final, isWinner){
       row.append(`<td>${score}</td>`);
     });
 
-    row.append(`<td>${final}</td>`);
+    row.append(`<td class="emphasize">${final}</td>`);
 
     return row;
 }

@@ -1,8 +1,19 @@
-BOX SCORE
--[] Scoring Summary (?)
+# TODO LIST
 
-CSS
--[] fix all tables and navbars
--[] make responsive
+## BOX SCORE
+
+-[] Scoring Summary
+
+## CSS
+
+-[] fix sidearm-table for Drive Chart and Plays
+
+-[] full borders around tables
+
+-[] fix navbar individual stats, drives, play-by-play
+
+-[] fix footer margins
+
+## JS
 
 -[] add sorting by header

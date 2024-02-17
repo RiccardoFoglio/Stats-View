@@ -42,19 +42,23 @@ function buildDefense(game) {
                 player.QBHurryNumber !== 0 
                 )  {
                 team.body.append($('<tr>').append(
-                    $('<td>').html(player.number),
-                    $('<th>').html(`${player.Surname} ${player.Name}`),
-                    $('<td>').html(player.TackleSolo),
-                    $('<td>').html(player.TackleAssist),
-                    $('<td>').html(player.TotalTackle),
-                    $('<td>').html(`${player.TackleForLossNumber}/${player.TackleForLossYds}`),
-                    $('<td>').html(`${player.TotalSack}/${player.GainedSackYds}`),
-                    $('<td>').html(player.FumbleForced),
-                    $('<td>').html(`${player.FumbleRecoveredNumber}/${player.FumbleReturnedYds}`),
-                    $('<td>').html(player.InterceptNumber),
-                    $('<td>').html(player.BrokenUpNumber),
-                    $('<td>').html(player.BlockedKickNumber),
-                    $('<td>').html(player.QBHurryNumber),
+                    $('<td>').html(player.number).addClass("text-center"),
+                    $('<th>').html(`${player.Surname} ${player.Name}.`).addClass("text-center"),
+                    $('<td>').html(player.TackleSolo).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(player.TackleAssist).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(player.TotalTackle).addClass("text-center"),
+                    $('<td>').html(`${player.TackleForLossNumber}/${player.TackleForLossYds}`).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(`${player.TackleForLossNumber}/${player.TackleForLossYds}`).addClass("text-center hide-on-medium"),
+                    $('<td>').html(`${player.TotalSack}/${player.GainedSackYds}`).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(player.TotalSack).addClass("text-center hide-on-medium"),
+                    $('<td>').html(player.FumbleForced).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(`${player.FumbleRecoveredNumber}-${player.FumbleReturnedYds}`).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(`${player.FumbleRecoveredNumber}-${player.FumbleReturnedYds}`).addClass("text-center hide-on-medium"),
+                    $('<td>').html(player.InterceptNumber).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(player.InterceptNumber).addClass("text-center hide-on-medium"),
+                    $('<td>').html(player.BrokenUpNumber).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(player.BlockedKickNumber).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(player.QBHurryNumber).addClass("text-center hide-on-x-small-down"),
                 ));
 
             }
@@ -62,12 +66,38 @@ function buildDefense(game) {
     });
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function buildST(game){
     buildPunting(game)
     buildAllRet(game)
     buildFG(game)
     buildKickoffs(game)
-    buildPAT(game)
 }
 
 
@@ -98,14 +128,14 @@ function buildPassing(game) {
         team.stats.forEach(player => {
             if (player.PassAttempted !== 0) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}`),
-                    $('<td>').html(player.PassCompleted),
-                    $('<td>').html(player.PassAttempted),
-                    $('<td>').html(player.PassYds),
-                    $('<td>').html(player.PassTD),
-                    $('<td>').html(player.PassInterceptedByOpponents),
-                    $('<td>').html(player.LongestPass),
-                    $('<td>').html(player.SackReceived),
+                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<td>').html(player.PassCompleted).addClass('text-center'),
+                    $('<td>').html(player.PassAttempted).addClass('text-center'),
+                    $('<td>').html(player.PassYds).addClass('text-center'),
+                    $('<td>').html(player.PassTD).addClass('text-center'),
+                    $('<td>').html(player.PassInterceptedByOpponents).addClass('text-center'),
+                    $('<td>').html(player.LongestPass).addClass('text-center'),
+                    $('<td>').html(player.SackReceived).addClass('text-center'),
                 ));
 
                 footerObject.PassCompleted += player.PassCompleted;
@@ -120,13 +150,13 @@ function buildPassing(game) {
 
         team.footer.append($('<tr>').append(
             $('<th>').html('TOTALS'),
-            $('<td>').html(footerObject.PassCompleted),
-            $('<td>').html(footerObject.PassAttempted),
-            $('<td>').html(footerObject.PassYds),
-            $('<td>').html(footerObject.PassTD),
-            $('<td>').html(footerObject.PassInterceptedByOpponents),
-            $('<td>').html(footerObject.LongestPass),
-            $('<td>').html(footerObject.SackReceived),
+            $('<td>').html(footerObject.PassCompleted).addClass('text-center'),
+            $('<td>').html(footerObject.PassAttempted).addClass('text-center'),
+            $('<td>').html(footerObject.PassYds).addClass('text-center'),
+            $('<td>').html(footerObject.PassTD).addClass('text-center'),
+            $('<td>').html(footerObject.PassInterceptedByOpponents).addClass('text-center'),
+            $('<td>').html(footerObject.LongestPass).addClass('text-center'),
+            $('<td>').html(footerObject.SackReceived).addClass('text-center'),
         ));
     });
 }
@@ -154,14 +184,14 @@ function buildRushing(game) {
         team.stats.forEach(player => {
             if (player.RushNumber !== 0) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}`),
-                    $('<td>').html(player.RushNumber),
-                    $('<td>').html(player.GainedRushYds),
-                    $('<td>').html(player.LossRushYds),
-                    $('<td>').html(player.RushYds),
-                    $('<td>').html(player.RushTD),
-                    $('<td>').html(player.LongestRush),
-                    $('<td>').html(getAverage(player.RushYds, player.RushNumber)),
+                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<td>').html(player.RushNumber).addClass('text-center'),
+                    $('<td>').html(player.GainedRushYds).addClass('text-center'),
+                    $('<td>').html(player.LossRushYds).addClass('text-center'),
+                    $('<td>').html(player.RushYds).addClass('text-center'),
+                    $('<td>').html(player.RushTD).addClass('text-center'),
+                    $('<td>').html(player.LongestRush).addClass('text-center'),
+                    $('<td>').html(getAverage(player.RushYds, player.RushNumber)).addClass('text-center'),
                 ));
 
                 footerObject.RushNumber += player.RushNumber;
@@ -176,13 +206,13 @@ function buildRushing(game) {
 
         team.footer.append($('<tr>').append(
             $('<th>').html('TOTALS'),
-            $('<td>').html(footerObject.RushNumber),
-            $('<td>').html(footerObject.GainedRushYds),
-            $('<td>').html(footerObject.LossRushYds),
-            $('<td>').html(footerObject.RushYds),
-            $('<td>').html(footerObject.RushTD),
-            $('<td>').html(footerObject.LongestRush),
-            $('<td>').html(footerObject.RushAVG),
+            $('<td>').html(footerObject.RushNumber).addClass('text-center'),
+            $('<td>').html(footerObject.GainedRushYds).addClass('text-center'),
+            $('<td>').html(footerObject.LossRushYds).addClass('text-center'),
+            $('<td>').html(footerObject.RushYds).addClass('text-center'),
+            $('<td>').html(footerObject.RushTD).addClass('text-center'),
+            $('<td>').html(footerObject.LongestRush).addClass('text-center'),
+            $('<td>').html(footerObject.RushAVG).addClass('text-center'),
         ));
     });
 }
@@ -207,11 +237,11 @@ function buildReceiving(game) {
         team.stats.forEach(player => {
             if (player.ReceiveNumber !== 0) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}`),
-                    $('<td>').html(player.ReceiveNumber),
-                    $('<td>').html(player.ReceiveYds),
-                    $('<td>').html(player.LongestReceive),
-                    $('<td>').html(player.ReceiveTD),
+                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<td>').html(player.ReceiveNumber).addClass('text-center'),
+                    $('<td>').html(player.ReceiveYds).addClass('text-center'),
+                    $('<td>').html(player.LongestReceive).addClass('text-center'),
+                    $('<td>').html(player.ReceiveTD).addClass('text-center'),
                 ));
 
                 footerObject.ReceiveNumber += player.ReceiveNumber;
@@ -223,10 +253,10 @@ function buildReceiving(game) {
 
         team.footer.append($('<tr>').append(
             $('<th>').html('TOTALS'),
-            $('<td>').html(footerObject.ReceiveNumber),
-            $('<td>').html(footerObject.ReceiveYds),
-            $('<td>').html(footerObject.ReceiveTD),
-            $('<td>').html(footerObject.LongestReceive),
+            $('<td>').html(footerObject.ReceiveNumber).addClass('text-center'),
+            $('<td>').html(footerObject.ReceiveYds).addClass('text-center'),
+            $('<td>').html(footerObject.ReceiveTD).addClass('text-center'),
+            $('<td>').html(footerObject.LongestReceive).addClass('text-center'),
         ));
     });
 }
@@ -259,13 +289,13 @@ function buildAllPurp(game) {
                 player.InterceptYds !== 0
                 ) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}`),
-                    $('<td>').html(player.RushYds),
-                    $('<td>').html(player.ReceiveYds),
-                    $('<td>').html(player.KickReturnYds),
-                    $('<td>').html(player.PuntReturnYds),
-                    $('<td>').html(player.InterceptYds),
-                    $('<td>').html(player.RushYds + player.ReceiveYds + player.KickReturnYds + player.PuntReturnYds + player.InterceptYds),
+                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<td>').html(player.RushYds).addClass('text-center'),
+                    $('<td>').html(player.ReceiveYds).addClass('text-center'),
+                    $('<td>').html(player.KickReturnYds).addClass('text-center'),
+                    $('<td>').html(player.PuntReturnYds).addClass('text-center'),
+                    $('<td>').html(player.InterceptYds).addClass('text-center'),
+                    $('<td>').html(player.RushYds + player.ReceiveYds + player.KickReturnYds + player.PuntReturnYds + player.InterceptYds).addClass('text-center'),
                 ));
 
                 footerObject.RushYds += player.RushYds;
@@ -279,12 +309,12 @@ function buildAllPurp(game) {
 
         team.footer.append($('<tr>').append(
             $('<th>').html('TOTALS'),
-            $('<td>').html(footerObject.RushYds),
-            $('<td>').html(footerObject.ReceiveYds),
-            $('<td>').html(footerObject.KickReturnYds),
-            $('<td>').html(footerObject.PuntReturnYds),
-            $('<td>').html(footerObject.InterceptYds),
-            $('<td>').html(footerObject.Total),
+            $('<td>').html(footerObject.RushYds).addClass('text-center'),
+            $('<td>').html(footerObject.ReceiveYds).addClass('text-center'),
+            $('<td>').html(footerObject.KickReturnYds).addClass('text-center'),
+            $('<td>').html(footerObject.PuntReturnYds).addClass('text-center'),
+            $('<td>').html(footerObject.InterceptYds).addClass('text-center'),
+            $('<td>').html(footerObject.Total).addClass('text-center'),
         ));
     });
 }
@@ -315,14 +345,14 @@ function buildPunting(game) {
         team.stats.forEach(player => {
             if (player.PuntNumber !== 0) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}`),
-                    $('<td>').html(player.PuntNumber),
-                    $('<td>').html(player.PuntYds),
-                    $('<td>').html(getAverage(player.PuntYds, player.PuntNumber)),
-                    $('<td>').html(player.LongestPunt),
-                    $('<td>').html(player.PuntInsideRedZone),
-                    $('<td>').html(player.PuntTouchback),
-                    $('<td>').html(player.PuntMoreThan50),
+                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<td>').html(player.PuntNumber).addClass('text-center'),
+                    $('<td>').html(player.PuntYds).addClass('text-center'),
+                    $('<td>').html(getAverage(player.PuntYds, player.PuntNumber)).addClass('text-center'),
+                    $('<td>').html(player.LongestPunt).addClass('text-center'),
+                    $('<td>').html(player.PuntInsideRedZone).addClass('text-center'),
+                    $('<td>').html(player.PuntTouchback).addClass('text-center'),
+                    $('<td>').html(player.PuntMoreThan50).addClass('text-center')
                 ));
 
                 footerObject.PuntNumber += player.PuntNumber;
@@ -336,13 +366,13 @@ function buildPunting(game) {
 
         team.footer.append($('<tr>').append(
             $('<th>').html('TOTALS'),
-            $('<td>').html(footerObject.PuntNumber),
-            $('<td>').html(footerObject.PuntYds),
-            $('<td>').html(getAverage(footerObject.PuntYds, footerObject.PuntNumber)),
-            $('<td>').html(footerObject.LongestPunt),
-            $('<td>').html(footerObject.PuntInsideRedZone),
-            $('<td>').html(footerObject.PuntTouchback),
-            $('<td>').html(footerObject.PuntMoreThan50),
+            $('<td>').html(footerObject.PuntNumber).addClass('text-center'),
+            $('<td>').html(footerObject.PuntYds).addClass('text-center'),
+            $('<td>').html(getAverage(footerObject.PuntYds, footerObject.PuntNumber)).addClass('text-center'),
+            $('<td>').html(footerObject.LongestPunt).addClass('text-center'),
+            $('<td>').html(footerObject.PuntInsideRedZone).addClass('text-center'),
+            $('<td>').html(footerObject.PuntTouchback).addClass('text-center'),
+            $('<td>').html(footerObject.PuntMoreThan50).addClass('text-center')
         ));
     });
 }
@@ -375,16 +405,16 @@ function buildAllRet(game) {
                 player.InterceptNumber !== 0
                 ) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}`),
-                    $('<td>').html(player.PuntReturnNumber),
-                    $('<td>').html(player.PuntReturnYds),
-                    $('<td>').html(checkLongest(player.LongestPuntReturn, game)),
-                    $('<td>').html(player.KickReturnNumber),
-                    $('<td>').html(player.KickReturnYds),
-                    $('<td>').html(checkLongest(player.LongestKickReturn, game)),
-                    $('<td>').html(player.InterceptNumber),
-                    $('<td>').html(player.InterceptYds),
-                    $('<td>').html(checkLongest(player.LongestIntercept, game)),
+                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<td>').html(player.PuntReturnNumber).addClass('text-center'),
+                    $('<td>').html(player.PuntReturnYds).addClass('text-center'),
+                    $('<td>').html(checkLongest(player.LongestPuntReturn, game)).addClass('text-center'),
+                    $('<td>').html(player.KickReturnNumber).addClass('text-center'),
+                    $('<td>').html(player.KickReturnYds).addClass('text-center'),
+                    $('<td>').html(checkLongest(player.LongestKickReturn, game)).addClass('text-center'),
+                    $('<td>').html(player.InterceptNumber).addClass('text-center'),
+                    $('<td>').html(player.InterceptYds).addClass('text-center'),
+                    $('<td>').html(checkLongest(player.LongestIntercept, game)).addClass('text-center'),
                    
                 ));
                 
@@ -403,15 +433,15 @@ function buildAllRet(game) {
 
         team.footer.append($('<tr>').append(
             $('<th>').html('TOTALS'),
-            $('<td>').html(footerObject.PuntReturnNumber),
-            $('<td>').html(footerObject.PuntReturnYds),
-            $('<td>').html(footerObject.LongestPuntReturn),
-            $('<td>').html(footerObject.KickReturnNumber),
-            $('<td>').html(footerObject.KickReturnYds),
-            $('<td>').html(footerObject.LongestKickReturn),
-            $('<td>').html(footerObject.InterceptNumber),
-            $('<td>').html(footerObject.InterceptYds),
-            $('<td>').html(footerObject.LongestIntercept),
+            $('<td>').html(footerObject.PuntReturnNumber).addClass('text-center'),
+            $('<td>').html(footerObject.PuntReturnYds).addClass('text-center'),
+            $('<td>').html(footerObject.LongestPuntReturn).addClass('text-center'),
+            $('<td>').html(footerObject.KickReturnNumber).addClass('text-center'),
+            $('<td>').html(footerObject.KickReturnYds).addClass('text-center'),
+            $('<td>').html(footerObject.LongestKickReturn).addClass('text-center'),
+            $('<td>').html(footerObject.InterceptNumber).addClass('text-center'),
+            $('<td>').html(footerObject.InterceptYds).addClass('text-center'),
+            $('<td>').html(footerObject.LongestIntercept).addClass('text-center'),
         ));
     });
 }
@@ -431,10 +461,10 @@ function buildFG(game) {
             
             team.body.append($('<tr>').append(
                 $('<th>').html(fieldgoal.SurnameName),
-                $('<td>').html(getQuarter(fieldgoal.Period)),
-                $('<td>').html(getTime(fieldgoal.Time.$numberLong)),
-                $('<td>').html(`${fieldgoal.Distance} yds`),
-                $('<td>').html(fieldgoal.Result),
+                $('<td>').html(getQuarter(fieldgoal.Period)).addClass('text-center'),
+                $('<td>').html(getTime(fieldgoal.Time.$numberLong)).addClass('text-center'),
+                $('<td>').html(`${fieldgoal.Distance} yds`).addClass('text-center'),
+                $('<td>').html(fieldgoal.Result).addClass('text-center'),
             ));
         });
     });
@@ -460,12 +490,12 @@ function buildKickoffs(game) {
         team.stats.forEach(player => {
             if (player.KickNumber !== 0) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}`),
-                    $('<td>').html(player.KickNumber),
-                    $('<td>').html(player.KickYds),
-                    $('<td>').html(player.KickTouchback),
-                    $('<td>').html(player.KickOutOfBounds),
-                    $('<td>').html(getAverage(player.KickYds, player.KickNumber)),
+                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<td>').html(player.KickNumber).addClass('text-center'),
+                    $('<td>').html(player.KickYds).addClass('text-center'),
+                    $('<td>').html(player.KickTouchback).addClass('text-center'),
+                    $('<td>').html(player.KickOutOfBounds).addClass('text-center'),
+                    $('<td>').html(getAverage(player.KickYds, player.KickNumber)).addClass('text-center'),
                 ));
 
                 footerObject.KickNumber += player.KickNumber;
@@ -477,11 +507,11 @@ function buildKickoffs(game) {
 
         team.footer.append($('<tr>').append(
             $('<th>').html('TOTALS'),
-            $('<td>').html(footerObject.KickNumber),
-            $('<td>').html(footerObject.KickYds),
-            $('<td>').html(footerObject.KickTouchback),
-            $('<td>').html(footerObject.KickOutOfBounds),
-            $('<td>').html(getAverage(footerObject.KickYds, footerObject.KickNumber)),
+            $('<td>').html(footerObject.KickNumber).addClass('text-center'),
+            $('<td>').html(footerObject.KickYds).addClass('text-center'),
+            $('<td>').html(footerObject.KickTouchback).addClass('text-center'),
+            $('<td>').html(footerObject.KickOutOfBounds).addClass('text-center'),
+            $('<td>').html(getAverage(footerObject.KickYds, footerObject.KickNumber)).addClass('text-center'),
         ));
     });
 }
