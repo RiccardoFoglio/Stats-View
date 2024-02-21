@@ -24,8 +24,11 @@ function buildDefense(game) {
         { stats: game.gamePlayerStatsVisitingTeam, body: $('#DefenseTableV tbody')}
     ];
 
-    $('#HomeDefense h5').html(`${game.HomeTeam.Name} - Individual Defense Stats`)
-    $('#AwayDefense h5').html(`${game.VisitingTeam.Name} - Individual Defense Stats`)
+    $('#HomeDefense_button').html(game.HomeTeam.Name);
+    $('#AwayDefense_button').html(game.VisitingTeam.Name);
+
+    $('#HomeDefense h5').html(`${game.HomeTeam.Name} - Individual Defense Stats`);
+    $('#AwayDefense h5').html(`${game.VisitingTeam.Name} - Individual Defense Stats`);
 
     teams.forEach(team => {
 

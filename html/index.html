@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
 
@@ -10,7 +11,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Sen:wght@400;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="../css/navbar.css">
@@ -21,13 +21,8 @@
   <link rel="stylesheet" href="../css/responsive2.css">
   <link rel="stylesheet" href="../css/tables.css">
   <link rel="stylesheet" href="../css/team.css">
-  
-
-
-  
 
   <script type="module" src="../js/index.js"></script>
-  <script type="module" src="../js/boxscore.js"></script>
 
 </head>
 <body>
@@ -36,7 +31,7 @@
 
     
   <!-- NAVBAR  -->
-  <ul class="navbar">
+  <ul id="main_navbar" class="navbar navbar-fixed">
     <a href="#" class="nav-item active" data-target="BoxScore">Box Score</a>
     <a href="#" class="nav-item" data-target="TeamStats">Team</a>
     <a href="#" class="nav-item" data-target="IndividualStats">Individual</a>
@@ -101,7 +96,7 @@
   </section>
 
   <section id="TeamStats" class="panel ui-tabs-panel ui-corner-bottom ui-widget-content content">
-    <div class="panel row">
+    <div class="row">
       <div class="columns">
         <table id="teamTotalsComplete-table" class="sidearm-table overall-stats highlight-hover full">
           <caption>Team Statistics</caption>
@@ -118,7 +113,7 @@
 
   <section id="IndividualStats" class="panel ui-tabs-panel ui-corner-bottom ui-widget-content content">
     
-    <section class="panel" aria-label="Offensive">
+    <section class="row" aria-label="Offensive">
       <div>
         <h4 class="sub-heading">Offensive</h4>
         <section id="individual-passing">
@@ -300,24 +295,26 @@
       </div>
     </section>
     
-    <section class="panel" aria-label="Defensive">
+    <section class="panel row" aria-label="Defensive">
       <div>
         <h4 class="sub-heading">Defensive</h4>
-        <div class="sidearm-responsive-tabs ui-tabs ui-corner-all ui-widget ui-widget-content">
+        
+        <div class="sidearm-responsive-tabs ui-tabs ui-corner-all ui-widget ui-widget-content">  
           
-          <ul class="navbar-nav hide-on-medium-down" id="defenseNavbar">
-            <li class="nav-item active"><a id="AwayDefense_button" href="#AwayDefense" onclick="return false"></a></li>
-            <li class="nav-item"><a id="HomeDefense_button" href="#HomeDefense" onclick="return false"></a></li>
+          <ul class="navbar navbar-inside">
+            <a class="nav-item active" id="HomeDefense_button" data-target="HomeDefense"></a>
+            <a class="nav-item" id="AwayDefense_button" data-target="AwayDefense"></a>
           </ul>
           
-          
+          <div class="navbar-toggle">Toggle Menu</div>
+          <!--
           <select id="defense-select" class="ui-tabs-select hide-on-large" onchange="update('defense-select')">
-            <option value="#AwayDefense" id="AwayDefense_option"></option>
             <option value="#HomeDefense" id="HomeDefense_option"></option>
+            <option value="#AwayDefense" id="AwayDefense_option"></option>
           </select>
-          
+          -->
 
-          <section id="HomeDefense">
+          <section id="HomeDefense" class="content active">
             <h5 class="sub-heading"></h5>
             <table id="DefenseTableH" class="sidearm-table overall-stats highlight-hover">
               <thead>
@@ -345,8 +342,8 @@
             </table>
           </section>
 
-          <section id="AwayDefense">
-            <h5 class=""></h5>
+          <section id="AwayDefense" class="content">
+            <h5 class="sub-heading"></h5>
             <table id="DefenseTableV" class="sidearm-table overall-stats highlight-hover">
               <thead>
                 <tr role="row">
@@ -376,7 +373,7 @@
       </div>
     </section>
     
-    <section class="panel" aria-label="Special Teams">
+    <section class="panel row" aria-label="Special Teams">
       <div>
         <h4 class="sub-heading">Special Teams</h4>
         <section id="individual-punting">
@@ -581,20 +578,23 @@
       <h3 class="sub-heading">Drive Chart</h3>
       <div class="sidearm-responsive-tabs ui-tabs ui-corner-all ui-widget ui-widget-content">
   
-        <ul class="navbar-nav hide-on-medium-down" id="driveNavbar">
-          <li class="nav-item active"><a href="#allDrives" onclick="return false">All</a></li>
-          <li class="nav-item"><a id="homeDrive_button" href="#HomeDrives" onclick="return false"></a></li>
-          <li class="nav-item"><a id="awayDrive_button" href="#AwayDrives" onclick="return false"></a></li>
+        <ul class="navbar navbar-inside" id="driveNavbar">
+          <a class="nav-item active" data-target="allDrives">All</a>
+          <a class="nav-item" id="homeDrive_button" data-target="HomeDrives"></a>
+          <a class="nav-item" id="awayDrive_button" data-target="AwayDrives"></a>
         </ul>
         
+        <div class="navbar-toggle">Toggle Menu</div>
+
+        <!--
         <select id="drives-select" class="ui-tabs-select hide-on-large" onchange="update('drives-select')">
           <option value="#allDrives">All</option>
           <option value="#HomeDrives" id="homeDrive_option"></option>
           <option value="#AwayDrives" id="awayDrive_option"></option>
         </select>
-      
+      -->
 
-        <section id="allDrives" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+        <section id="allDrives" class="content active">
           <table id="allDrivesTable" class="sidearm-table overall-stats highlight-hover collapse-on-medium">
             <thead>
               <tr>
@@ -620,7 +620,7 @@
           </table>
         </section>
   
-        <section id="HomeDrives" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+        <section id="HomeDrives" class="content">
           <table id="HomeDrivesTable" class="sidearm-table overall-stats highlight-hover collapse-on-medium">
             <thead>
               <tr>
@@ -646,7 +646,7 @@
           </table>
         </section>
   
-        <section id="AwayDrives" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+        <section id="AwayDrives" class="content">
           <table id="AwayDrivesTable" class="sidearm-table overall-stats highlight-hover collapse-on-medium">
             <thead>
               <tr>
@@ -681,14 +681,15 @@
       <h4 class="sub-heading">Play By Play</h4>
       <div class="sidearm-responsive-tabs ui-tabs ui-corner-all ui-widget ui-widget-content">
         
-        <ul class="navbar-nav hide-on-medium-down" id="playsNavbar">
-          <li class="nav-item active"><a href="#1st" onclick="return false">1ST</a></li>
-          <li class="nav-item"><a href="#2nd" onclick="return false">2ND</a></li>
-          <li class="nav-item"><a href="#3rd" onclick="return false">3RD</a></li>
-          <li class="nav-item"><a href="#4th" onclick="return false">4TH</a></li>
-          <li class="nav-item"><a href="#ot" onclick="return false">OT</a></li>
+        <ul class="navbar navbar-inside" id="playsNavbar">
+          <a class="nav-item active" data-target="firstQtrPlays">1ST</a>
+          <a class="nav-item" data-target="secondQtrPlays">2ND</a>
+          <a class="nav-item" data-target="thirdQtrPlays">3RD</a>
+          <a class="nav-item" data-target="fourthQtrPlays">4TH</a>
+          <a class="nav-item" data-target="overtimePlays">OT</a>
         </ul>
         
+        <!-- 
         <select id="plays-select" class="ui-tabs-select hide-on-large" onchange="update('plays-select')">
           <option value="#1st">1st</option>
           <option value="#2nd">2nd</option>
@@ -696,29 +697,29 @@
           <option value="#4th">4th</option>
           <option value="#ot">OT</option>
         </select>
+        -->
 
-
-        <section id="firstQtrPlays" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+        <section id="firstQtrPlays" class="content active">
           <table class="sidearm-table overall-stats plays highlight-hover collapse-on-small">
             <tbody></tbody>
           </table>
         </section>
-        <section id="secondQtrPlays" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+        <section id="secondQtrPlays" class="content">
           <table class="sidearm-table overall-stats plays highlight-hover collapse-on-small">
             <tbody></tbody>
           </table>
         </section>
-        <section id="thirdQtrPlays" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+        <section id="thirdQtrPlays" class="content">
           <table class="sidearm-table overall-stats plays highlight-hover collapse-on-small">
             <tbody></tbody>
           </table>
         </section>
-        <section id="fourthQtrPlays" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+        <section id="fourthQtrPlays" class="content">
           <table class="sidearm-table overall-stats plays highlight-hover collapse-on-small">
             <tbody></tbody>
           </table>
         </section>
-        <section id="overtimePlays" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+        <section id="overtimePlays" class="content">
           <table class="sidearm-table overall-stats plays highlight-hover collapse-on-small">
             <tbody></tbody>
           </table>
@@ -768,11 +769,11 @@
     </div>
   </section>
 
-  <footer>
-    <p>Powered by: Riccardo Foglio</p>
-  </footer>
+  
 </article>
 </main>
 </body>
-
+<footer>
+  <p>Powered by: Riccardo Foglio</p>
+</footer>
 </html>

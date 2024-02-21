@@ -4,15 +4,13 @@
 
 -[] Scoring Summary
 
-## CSS
+## CSS & RESPONSIVENESS
 
 -[] fix sidearm-table for Drive Chart and Plays
 
+-[] make responsive navbars system
+
 -[] full borders around tables
-
--[] fix navbar individual stats, drives, play-by-play
-
--[] fix footer margins
 
 ## JS
 

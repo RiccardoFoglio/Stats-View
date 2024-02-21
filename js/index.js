@@ -27,38 +27,21 @@ fetch("../data/" + filegame)
 
 
 // NAVBAR
-$(document).ready(function() {
-    $(".navbar .nav-item").click(function() {
-        var targetId = $(this).data("target");
 
-        $(".content").removeClass("active");
-        $("#" + targetId).addClass("active");
+$(".navbar .nav-item").click(function() {
+    var navbar = $(this).closest(".navbar");
+    var targetId = $(this).data("target");
+    var targetSection = $("#" + targetId);
 
-        $(".nav-item").removeClass("active");
-        $(this).addClass("active");
+    // Remove active class from all nav-items within the same navbar
+    navbar.find(".nav-item").removeClass("active");
+    $(this).addClass("active");
 
-        // For mobile, hide the menu after clicking on an item
-        if ($(window).width() <= 600) {
-            $(".navbar").removeClass("active");
-        }
-    });
+    // Activate only the div linked to the clicked navbar
+    targetSection.addClass("active").siblings().removeClass("active");
 
-    // Toggle navbar menu for mobile
-    $(".navbar-toggle").click(function() {
-        $(".navbar").toggleClass("active");
-    });
-
-    // Close menu when clicking outside on mobile
-    $(document).click(function(e) {
-        if (!$(e.target).closest(".navbar-toggle").length && !$(e.target).closest(".navbar").length) {
-            $(".navbar").removeClass("active");
-        }
-    });
-
-    // Close menu on window resize
-    $(window).resize(function() {
-        if ($(window).width() > 600) {
-            $(".navbar").removeClass("active");
-        }
-    });
+    // For mobile, hide the menu after clicking on an item
+    if ($(window).width() <= 600) {
+        navbar.removeClass("active");
+    }
 });

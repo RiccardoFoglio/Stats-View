@@ -297,6 +297,10 @@ select {
   margin-top: 24px;
 }
 
+body {
+  margin: 0;;
+}
+
 footer {
   background-color: #ffd700;
   height: 60px;
