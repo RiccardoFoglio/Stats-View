@@ -15,13 +15,10 @@ fetch("../data/" + filegame)
     
     buildBoxScore(data);
     buildTeamStats(data);
-    
     buildIndStats(data);
     buildDriveChart(data);
     buildPlays(data);
-
     buildRoster(data);
-
   })
   .catch(error => console.error('Error fetching JSON:', error));
 

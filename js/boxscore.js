@@ -155,14 +155,8 @@ function buildScoringSummary(game){
   
     header.append(row)
 
-    
-
-  // format: 
   // BODY--> 6td: qtr-time | 1qtr | time | Event (PAT) - plays - yards - TOP | score home | score away
 
-    // NEW VERSION
-
-    
     for (let i = 0; i < game.PlayByPlay.length; i++) {
         if (game.PlayByPlay[i].Event.startsWith("Score:")) {
             if (!game.PlayByPlay[i - 1].Event.includes("PAT Try")) {

@@ -1,9 +1,5 @@
 # TODO LIST
 
-## BOX SCORE
-
--[] Scoring Summary
-
 ## CSS & RESPONSIVENESS
 
 -[] fix sidearm-table for Drive Chart and Plays (! collapse-on-medium is wrong!!!)
@@ -15,5 +11,3 @@
 ## JS
 
 -[] add sorting by header
-
--[] only show OT if the period is greated than 4
