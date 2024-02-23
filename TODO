@@ -6,7 +6,7 @@
 
 ## CSS & RESPONSIVENESS
 
--[] fix sidearm-table for Drive Chart and Plays
+-[] fix sidearm-table for Drive Chart and Plays (! collapse-on-medium is wrong!!!)
 
 -[] make responsive navbars system
 
@@ -15,3 +15,5 @@
 ## JS
 
 -[] add sorting by header
+
+-[] only show OT if the period is greated than 4

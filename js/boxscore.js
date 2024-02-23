@@ -1,4 +1,4 @@
-import {getFormattedDate, getFormattedTime, getDuration} from '../js/auxiliaries.js'
+import {getFormattedDate, getFormattedTime, getDuration, getQuarter} from '../js/auxiliaries.js'
 
 export default function buildBoxScore(game){
   
@@ -74,10 +74,8 @@ export default function buildBoxScore(game){
       $('#general-info').append(`<dd>${item.value}</dd>`);
     })
     
-
-    //TODO  Scoring Summary
-
-    // check algorithm from DEVELOPER !!!!!!!!!!!!!!!!
+    //Scoring Summary
+    buildScoringSummary(game);
 
     // Refs
     const officials = [
@@ -106,11 +104,8 @@ export default function buildBoxScore(game){
             const span = $('<span></span>').text(` ${official.value}`);
             rowEntry.append($('<td></td>').append(bold, span));
         });
-
         $('#refs-table-foot').append(rowEntry);
     });
-
-
 })}
 
 
@@ -135,10 +130,203 @@ function createTableRow(team, scores, final, isWinner){
 }
 
 // Function to chunk the officials array into groups of three
-    function chunkArray(array, size) {
+function chunkArray(array, size) {
         const chunkedArray = [];
         for (let i = 0; i < array.length; i += size) {
             chunkedArray.push(array.slice(i, i + size));
         }
         return chunkedArray;
+}
+
+function buildScoringSummary(game){
+  
+    const header = $("#scoring-summary-table-head");
+    const table = $("#scoring-summary-table-body");
+    const footer = $("#scoring-summary-table-foot");
+  
+  
+  // HEADER --> 3 blank, home code | away code
+    let row = $('<tr>')
+        .append($('<th>'))
+        .append($('<th>'))
+        .append($('<th>'))
+        .append($('<th>').text(game.HomeTeam.Code))
+        .append($('<th>').text(game.VisitingTeam.Code));
+  
+    header.append(row)
+
+    
+
+  // format: 
+  // BODY--> 6td: qtr-time | 1qtr | time | Event (PAT) - plays - yards - TOP | score home | score away
+
+    // NEW VERSION
+
+    
+    for (let i = 0; i < game.PlayByPlay.length; i++) {
+        if (game.PlayByPlay[i].Event.startsWith("Score:")) {
+            if (!game.PlayByPlay[i - 1].Event.includes("PAT Try")) {
+                
+                let $tr = $("<tr>"); 
+                
+                let scoreevent = game.PlayByPlay[i - 1].Event;
+                
+                let time = scoreevent.indexOf(" (Time:")
+                let timeOnly = scoreevent.substring(scoreevent.indexOf(" (Time:")+7,scoreevent.indexOf(" (Time:")+13);
+                
+                $tr.append($('<td>').addClass('hide-on-large emphasize hide-label').text(`${getQuarter(game.PlayByPlay[i - 1].Period)} ${timeOnly}`))
+                $tr.append($('<td>').addClass('hide-on-medium-down text-center').text(getQuarter(game.PlayByPlay[i - 1].Period)))
+                $tr.append($('<td>').addClass('hide-on-medium-down text-center').text(timeOnly))
+
+                scoreevent = scoreevent.replace(time, "");
+                scoreevent = scoreevent.replace(", GOOD", "")
+                    .replace("field goal attempt from", "field goal from")
+                    .replace("pass complete to", "pass to")
+                    .replace("rush for", "runs")
+                    .replace("yards", "yd").replace("yard", "yd")
+                    
+                let scoreAction = scoreevent.slice(0, scoreevent.indexOf('yd')+2)
+
+                //let holdedindex = scoreevent.indexOf(" (holded by");
+                //let longsnappedindex = scoreevent.indexOf(" (long snapped by");
+                //if (holdedindex !== -1 || longsnappedindex !== -1) {
+                //    let minindex = -1;
+                //    if (holdedindex === -1) {
+                //        minindex = longsnappedindex;
+                //    } else if (longsnappedindex === -1) {
+                //        minindex = holdedindex;
+                //    } else {
+                //        minindex = Math.min(holdedindex, longsnappedindex);
+                //    }
+                //    let cancelholdedsnapped = scoreevent.substring(minindex, scoreevent.length - minindex);
+                //    scoreevent = scoreevent.replace(cancelholdedsnapped, "");
+                //}
+                //let possibleposchg = scoreevent.indexOf(" (POSSESSION CHANGE");
+                //if (possibleposchg !== -1) {
+                //    let cancelposchg = scoreevent.substring(possibleposchg, scoreevent.length - possibleposchg);
+                //    scoreevent = scoreevent.replace(cancelposchg, "");
+                //}
+
+                let score;
+
+                let indexarrayofpattry = -1;
+                for (let j = i + 2; j < game.PlayByPlay.length; j++) {
+                    if (game.PlayByPlay[j].Event.includes("PAT Try")) {         // found PAT after score
+                        indexarrayofpattry = j;
+                        break;
+                    }
+                    if (game.PlayByPlay[j].Event.includes("drive start at")) {  // no PAT after score
+                        break;
+                    }
+                }
+                let scorePAT = '';
+                let specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
+                let uppercase = /\b[A-Z]+\b/g;
+
+                if (indexarrayofpattry !== -1) {
+                    if (indexarrayofpattry + 1 < game.PlayByPlay.length) {
+                        if (game.PlayByPlay[indexarrayofpattry + 1].Event.startsWith("Score: ")) { // PAT Scored
+
+                            scorePAT = game.PlayByPlay[indexarrayofpattry].Event;
+
+                            //let holdedindex2 = scorePAT.indexOf(" (holded by");
+                            //let longsnappedindex2 = scorePAT.indexOf(" (long snapped by");
+                            //if (holdedindex2 !== -1 || longsnappedindex2 !== -1) {
+                            //    let minindex2 = -1;
+                            //    if (holdedindex2 === -1) {
+                            //        minindex2 = longsnappedindex2;
+                            //    } else if (longsnappedindex2 === -1) {
+                            //        minindex2 = holdedindex2;
+                            //    } else {
+                            //        minindex2 = Math.min(holdedindex2, longsnappedindex2);
+                            //    }
+                            //    let cancelholdedsnapped2 = scoreevent.substring(minindex2, scoreevent.length - minindex2);
+                            //    
+                            //    scorePAT = scorePAT.replace(cancelholdedsnapped2, "");
+                            //}
+
+                            scorePAT = scorePAT.replace('.', '');
+                            scorePAT = scorePAT.replace(' (Passer), ', ', ');
+
+                            if (scorePAT.indexOf('(received by') !== -1 ){
+                                scorePAT = scorePAT.substring(0, scorePAT.indexOf('(received by'))
+                            }
+
+                            score = game.PlayByPlay[indexarrayofpattry + 1].Event.match(/\d+/g);
+
+                        } else { // PAT not Scored
+                            
+                            scorePAT = game.PlayByPlay[indexarrayofpattry].Event;
+
+                            //let holdedindex3 = scorePAT.indexOf(" (holded by");
+                            //let longsnappedindex3 = scorePAT.indexOf(" (long snapped by");
+                            //if (holdedindex3 !== -1 || longsnappedindex3 !== -1) {
+                            //    let minindex3 = -1;
+                            //    if (holdedindex3 === -1) {
+                            //        minindex3 = longsnappedindex3;
+                            //    } else if (longsnappedindex3 === -1) {
+                            //        minindex3 = holdedindex3;
+                            //    } else {
+                            //        minindex3 = Math.min(holdedindex3, longsnappedindex3);
+                            //    }
+                            //    let cancelholdedsnapped3 = scorePAT.substring(minindex3, scorePAT.length - minindex3);
+                            //    scorePAT = scorePAT.replace(cancelholdedsnapped3, "");
+                            //}
+
+                            scorePAT = scorePAT.replace(' (Passer)', '');
+                            scorePAT = scorePAT.replace(`(${game.HomeTeam.Code})`, '');
+                            scorePAT = scorePAT.replace(`(${game.VisitingTeam.Code})`, '');
+                            scorePAT = scorePAT.replace(specialChars, '');
+                            let scorePAT_list = scorePAT.split(' ');
+                            let actionPAT = scorePAT_list.slice(0, 5).join(' ');
+                            if (scorePAT_list.length > 5 && scorePAT_list[5] === scorePAT_list[5].toLowerCase()) {
+                                actionPAT = scorePAT_list.slice(0, 6).join(' ');
+                            }
+                            let scorePAT_Uppercase = scorePAT.match(uppercase)?.slice(1).join(' ') || '';
+                            scorePAT = actionPAT + ' ' + scorePAT_Uppercase;
+
+                            score = game.PlayByPlay[i].Event.match(/\d+/g);
+
+                        }
+                    } else {
+                        score = game.PlayByPlay[i].Event.match(/\d+/g);
+                    }
+                } else {
+                    score = game.PlayByPlay[i].Event.match(/\d+/g);
+                }
+
+                let drive = game.PlayByPlay[i + 1].Event;
+                drive = drive.replace('yards', 'yds')
+
+                $tr.append($('<td>').text(scoreAction + " (" + scorePAT  + ') - ' + drive));
+                $tr.append($('<td>').addClass('text-normal-on-large text-center text-bold').text(score[0]));
+                $tr.append($('<td>').addClass('text-normal-on-large text-center text-bold').text(score[1]));
+
+                table.append($tr)
+            }
+        }
     }
+
+
+
+
+  //row = $('<tr>')
+  //  .append($('<td>').addClass('hide-on-large emphasize hide-label'))     // qtr - time
+  //  .append($('<td>').addClass('hide-on-medium-down'))                    // qtr
+  //  .append($('<td>').addClass('hide-on-medium-down text-center'))                    // time
+  //  .append($('<td>').text() ) // Event (PAT) - plays - yards - TOP
+  //  .append($('<td>').addClass('text-normal-on-large text-center text-bold').attr('data-label',`${game.HomeTeam.Code}` ).text()) // partial score home
+  //  .append($('<td>').addClass('text-normal-on-large text-center text-bold').attr('data-label',`${game.VisitingTeam.Code}` ).text()) // partial score away
+  //
+  //table.append(row)
+
+  // FOOTER
+    row = $('<tr>')
+        .append($('<td>').addClass('hide-on-medium-down'))
+        .append($('<td>').addClass('hide-on-medium-down'))
+        .append($('<td>').addClass('hide-on-medium-down'))
+        .append($('<td>').addClass('text-normal-on-large text-center text-bold').attr('data-label',`${game.HomeTeam.Name}` ).text(game.gameTeamStatsHomeTeam.ScoreTotal))
+        .append($('<td>').addClass('text-normal-on-large text-center text-bold').attr('data-label',`${game.VisitingTeam.Name}` ).text(game.gameTeamStatsVisitingTeam.ScoreTotal));
+
+    footer.append(row)
+}

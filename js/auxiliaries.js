@@ -40,6 +40,9 @@ export function checkLongest(length, game){
 }
 
 export function getQuarter(number){
-  const conversionTable = ['', '1st', '2nd', '3rd', '4th', 'OT']
-  return conversionTable[number]
+  const conversionTable = ['', '1st', '2nd', '3rd', '4th']
+
+  let final = number > 4 ? 'OT'+(number-4) : conversionTable[number]
+
+  return final
 }
