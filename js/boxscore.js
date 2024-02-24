@@ -293,26 +293,13 @@ function buildScoringSummary(game){
                 drive = drive.replace('yards', 'yds')
 
                 $tr.append($('<td>').text(scoreAction + " (" + scorePAT  + ') - ' + drive));
-                $tr.append($('<td>').addClass('text-normal-on-large text-center text-bold').text(score[0]));
-                $tr.append($('<td>').addClass('text-normal-on-large text-center text-bold').text(score[1]));
+                $tr.append($('<td>').addClass('text-normal-on-large text-center text-bold').attr('data-label', game.HomeTeam.Code).text(score[1]));
+                $tr.append($('<td>').addClass('text-normal-on-large text-center text-bold').attr('data-label', game.VisitingTeam.Code).text(score[0]));
 
                 table.append($tr)
             }
         }
     }
-
-
-
-
-  //row = $('<tr>')
-  //  .append($('<td>').addClass('hide-on-large emphasize hide-label'))     // qtr - time
-  //  .append($('<td>').addClass('hide-on-medium-down'))                    // qtr
-  //  .append($('<td>').addClass('hide-on-medium-down text-center'))                    // time
-  //  .append($('<td>').text() ) // Event (PAT) - plays - yards - TOP
-  //  .append($('<td>').addClass('text-normal-on-large text-center text-bold').attr('data-label',`${game.HomeTeam.Code}` ).text()) // partial score home
-  //  .append($('<td>').addClass('text-normal-on-large text-center text-bold').attr('data-label',`${game.VisitingTeam.Code}` ).text()) // partial score away
-  //
-  //table.append(row)
 
   // FOOTER
     row = $('<tr>')

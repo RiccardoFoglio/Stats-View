@@ -4,6 +4,8 @@
   https://github.com/RiccardoFoglio/Stats-Project
 */
 
+/* BOX TABLE*/
+
 .box-score table {
   margin-bottom: 0;
   width: 100% !important;
@@ -33,7 +35,6 @@
   font-style: italic;
 }
 
-
 .box-score table caption {
   font-weight: bold;
   font-size: 1.4em;
@@ -43,6 +44,7 @@
   caption-side: top;
 }
 
+/* SIDEARM TABLE*/
 
 .sidearm-table {
   width: 100%;

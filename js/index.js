@@ -4,6 +4,7 @@ import buildTeamStats from "../js/teamStats.js";
 import buildIndStats from "../js/indStats.js";
 import buildDriveChart from "../js/driveChart.js";
 import buildPlays from "../js/plays.js";
+import {toggleCollapseByWidth} from "../js/auxiliaries.js";
 
 const filegame = "SEA @ GIT - 1705278755.game";
 //const filegame = "GIT @ RED - 1708103843.game";
@@ -12,7 +13,7 @@ fetch("../data/" + filegame)
   .then(response => response.json())
   .then(data => {
     // Do something with the JSON data
-    
+
     buildBoxScore(data);
     buildTeamStats(data);
     buildIndStats(data);
@@ -22,6 +23,15 @@ fetch("../data/" + filegame)
   })
   .catch(error => console.error('Error fetching JSON:', error));
 
+
+// FIX THE RESPONSIVENESS
+
+toggleCollapseByWidth([
+    "ScoringSummary-table",
+    "allDrivesTable",
+    "HomeDrivesTable",
+    "AwayDrivesTable"
+  ], 'collapse-on-medium', 768)
 
 // NAVBAR
 
@@ -43,3 +53,8 @@ $(".navbar .nav-item, .nav-select").click(function() {
         navbar.removeClass("active");
     }
 });
+
+
+
+
+  

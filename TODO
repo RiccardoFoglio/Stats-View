@@ -2,11 +2,11 @@
 
 ## CSS & RESPONSIVENESS
 
--[] fix sidearm-table for Drive Chart and Plays (! collapse-on-medium is wrong !)
-
--[] make responsive navbars system
-
 -[] full borders around tables
+
+-[] make individual stats by team
+
+-[] fix plays table
 
 ## JS
 

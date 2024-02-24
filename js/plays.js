@@ -34,7 +34,7 @@ function eventDDRow(play, body){
     const down = ['', '1st', '2nd', '3rd', '4th']
 
     body.append($('<tr>').append(
-        $('<td>').html(`${down[play.Down]} and ${play.ToGo} at ${play.BallLocationTeam}${play.BallLocationYds}`),
+        $('<td>').html(`${down[play.Down]} & ${play.ToGo == "GOAL" ? "G" : play.ToGo} at ${play.BallLocationTeam}${play.BallLocationYds}`),
         $('<td>').html(play.Event)
 
     ))

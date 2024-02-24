@@ -46,3 +46,17 @@ export function getQuarter(number){
 
   return final
 }
+
+export function toggleCollapseByWidth(elements, className, breakpoint) {
+  $(window).on('resize load', function(){
+    let windowWidth = $(window).width();
+    elements.forEach(function(id) {
+      let element = $('#' + id);
+      if (windowWidth <= breakpoint) {
+        element.addClass(className)
+      } else {
+        element.removeClass(className)
+      }
+    })
+  })
+}
