@@ -4,7 +4,8 @@ import buildTeamStats from "../js/teamStats.js";
 import buildIndStats from "../js/indStats.js";
 import buildDriveChart from "../js/driveChart.js";
 import buildPlays from "../js/plays.js";
-import {toggleCollapseByWidth} from "../js/auxiliaries.js";
+import {toggleCollapseByWidth, sortTable} from "../js/auxiliaries.js";
+
 
 const filegame = "SEA @ GIT - 1705278755.game";
 //const filegame = "GIT @ RED - 1708103843.game";
@@ -24,6 +25,16 @@ fetch("../data/" + filegame)
   .catch(error => console.error('Error fetching JSON:', error));
 
 
+// SORTING TABLES BY HEADER CLICK
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sortableTables = document.querySelectorAll('.sortable-table');
+    sortableTables.forEach(table => {
+        table.addEventListener('click', sortTable);
+    });
+});
+
+
 // FIX THE RESPONSIVENESS
 
 toggleCollapseByWidth([
@@ -33,6 +44,7 @@ toggleCollapseByWidth([
     "AwayDrivesTable"
   ], 'collapse-on-medium', 768)
 
+  
 // NAVBAR
 
 $(".navbar .nav-item, .nav-select").click(function() {
@@ -54,7 +66,3 @@ $(".navbar .nav-item, .nav-select").click(function() {
     }
 });
 
-
-
-
-  

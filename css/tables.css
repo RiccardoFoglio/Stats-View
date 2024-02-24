@@ -224,3 +224,12 @@
 .sidearm-table[class*="collapse"] tfoot tr:after {
   clear: both;
 }
+
+.sortable-table th {
+  cursor: pointer;
+}
+
+.sortable-table thead th:not(:empty):not(.text-hide):hover {
+  background-color: #FFFFB3;
+  border-radius: 5px;
+}

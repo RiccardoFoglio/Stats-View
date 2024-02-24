@@ -60,3 +60,55 @@ export function toggleCollapseByWidth(elements, className, breakpoint) {
     })
   })
 }
+
+export function sortTable(event) {
+    const th = event.target.closest('th');
+    if (!th || !th.textContent.trim()) return;
+    if (!th.closest('thead')) return;
+
+    const table = th.closest('.sortable-table');
+    if (!table) return;
+
+    const columnIndex = Array.from(th.parentNode.children).indexOf(th);
+    const dataType = th.dataset.dataType || 'string';
+    const sortOrder = th.dataset.sortOrder || 'asc';
+
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+
+    rows.sort((rowA, rowB) => {
+        const valueA = extractValue(rowA.cells[columnIndex].textContent, dataType);
+        const valueB = extractValue(rowB.cells[columnIndex].textContent, dataType);
+
+        let comparison = 0;
+
+        if (dataType === 'string') {
+            if (!isNaN(valueA) && !isNaN(valueB)) {
+                comparison = valueB - valueA;
+            } else {
+                comparison = valueA.localeCompare(valueB);
+            }
+        } else {
+            comparison = valueA - valueB;
+        }
+        return sortOrder === 'asc' ? comparison : -comparison;
+    });
+
+    th.dataset.sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+
+    rows.forEach(row => {
+        table.querySelector('tbody').appendChild(row);
+    });
+}
+
+function extractValue(cellText, dataType) {
+    if (dataType === 'number') {
+        const numericMatches = cellText.match(/-?\d+(\.\d+)?/g);
+        if (numericMatches) {
+            return parseFloat(numericMatches[numericMatches.length - 1]);
+        } else {
+            return NaN;
+        }
+    } else {
+        return cellText.trim();
+    }
+}
