@@ -39,7 +39,14 @@
     <a href="#" class="nav-item" data-target="Roster">Roster</a>
   </ul>
 
-  <div class="navbar-toggle">Toggle Menu</div>
+  <select class="nav-select navbar-toggle">
+    <option value="BoxScore">Box Score</option>
+    <option value="TeamStats">Team Stats</option>
+    <option value="IndividualStats">Individual Stats</option>
+    <option value="DriveChart">Drive Chart</option>
+    <option value="Plays">Play-by-Play</option>
+    <option value="Roster">Roster</option>
+  </select>
 
   <!-- BOX BELOW, SHOW ACCORDING TO NAVBAR -->
 
@@ -583,15 +590,11 @@
           <a class="nav-item" id="awayDrive_button" data-target="AwayDrives"></a>
         </ul>
         
-        <div class="navbar-toggle">Toggle Menu</div>
-
-        <!--
-        <select id="drives-select" class="ui-tabs-select hide-on-large" onchange="update('drives-select')">
-          <option value="#allDrives">All</option>
-          <option value="#HomeDrives" id="homeDrive_option"></option>
-          <option value="#AwayDrives" id="awayDrive_option"></option>
+        <select class="nav-select navbar-toggle">
+          <option value="allDrives">All Drives</option>
+          <option value="HomeDrives" id="homeDrive_option"></option>
+          <option value="AwayDrives" id="awayDrive_option"></option>
         </select>
-      -->
 
         <section id="allDrives" class="content active">
           <table id="allDrivesTable" class="sidearm-table overall-stats highlight-hover">
@@ -687,6 +690,13 @@
           <a class="nav-item" data-target="overtimePlays">OT</a>
         </ul>
         
+        <select class="nav-select navbar-toggle">
+          <option value="firstQtrPlays">1st Quarter</option>
+          <option value="secondQtrPlays">2nd Quarter</option>
+          <option value="thirdQtrPlays">3rd Quarter</option>
+          <option value="fourthQtrPlays">4th Quarter</option>
+          <option value="overtimePlays" id="overtime_option">Overtime</option>
+        </select>
         <!-- 
         <select id="plays-select" class="ui-tabs-select hide-on-large" onchange="update('plays-select')">
           <option value="#1st">1st</option>

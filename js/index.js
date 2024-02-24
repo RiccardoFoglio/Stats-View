@@ -25,20 +25,21 @@ fetch("../data/" + filegame)
 
 // NAVBAR
 
-$(".navbar .nav-item").click(function() {
+$(".navbar .nav-item, .nav-select").click(function() {
     var navbar = $(this).closest(".navbar");
-    var targetId = $(this).data("target");
+    var targetId = $(this).data("target") || $(this).val();
     var targetSection = $("#" + targetId);
 
     // Remove active class from all nav-items within the same navbar
     navbar.find(".nav-item").removeClass("active");
+    navbar.find(".nav-select").val("");
     $(this).addClass("active");
 
     // Activate only the div linked to the clicked navbar
     targetSection.addClass("active").siblings().removeClass("active");
 
     // For mobile, hide the menu after clicking on an item
-    if ($(window).width() <= 600) {
+    if ($(window).width() <= 768) {
         navbar.removeClass("active");
     }
 });

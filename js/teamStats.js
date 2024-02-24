@@ -27,7 +27,7 @@ export default function buildTeamStats(game){
 
     headerRow('PASSING', table)
     dataRow('Total (NET)', HStats.PassYds, AStats.PassYds, table);
-    dataRow('Comp - Att - Int', `${HStats.PassCompleted} / ${HStats.PassAttempted} / ${HStats.PassIntercepted}`, `${AStats.PassCompleted} / ${AStats.PassAttempted} / ${AStats.PassIntercepted}`, table);
+    dataRow('Comp - Att - Int', `${HStats.PassCompleted}/${HStats.PassAttempted}/${HStats.PassIntercepted}`, `${AStats.PassCompleted}/${AStats.PassAttempted}/${AStats.PassIntercepted}`, table);
     dataRow('Avg / Att', HStats.AvgPassAttempted.toFixed(1), AStats.AvgPassAttempted.toFixed(1), table);
     dataRow('Avg / Comp', HStats.AvgPassCompleted.toFixed(1), AStats.AvgPassCompleted.toFixed(1), table);
     dataRow('TDs', HStats.PassTD, AStats.PassTD, table);

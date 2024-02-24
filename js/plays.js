@@ -2,7 +2,7 @@ export default function buildPlays(game){
     $(document).ready(function(){
 
         if (game.Overtimes == 0){
-            $('#playsNavbar a:last').css('display', 'None');
+            $('#playsNavbar a:last, #overtime_option').css('display', 'None');
         }
 
         const qtr = ['', 'firstQtr', 'secondQtr', 'thirdQtr', 'fourthQtr', 'overtime']

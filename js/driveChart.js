@@ -4,8 +4,8 @@ export default function buildDriveChart(game){
   $(document).ready(function(){
 
     // add names to the buttons
-    $("#homeDrive_button").html(game.HomeTeam.Name);
-    $("#awayDrive_button").html(game.VisitingTeam.Name);
+    $("#homeDrive_button, #homeDrive_option").html(game.HomeTeam.Name);
+    $("#awayDrive_button, #awayDrive_option").html(game.VisitingTeam.Name);
 
     const allDrives = $("#allDrivesTable tbody");
     const homeDrives = $("#HomeDrives tbody");
