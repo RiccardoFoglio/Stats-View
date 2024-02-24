@@ -136,7 +136,7 @@
                       <th scope="col" class="text-center">Yds.</th>
                       <th scope="col" class="text-center">TD</th>
                       <th scope="col" class="text-center">INT</th>
-                      <th scope="col" class="text-center">Long</th>
+                      <th scope="col" class="text-center">Lg</th>
                       <th scope="col" class="text-center">Sack</th>
                     </tr>
                   </thead>
@@ -157,7 +157,7 @@
                       <th scope="col" class="text-center">Yds.</th>
                       <th scope="col" class="text-center">TD</th>
                       <th scope="col" class="text-center">INT</th>
-                      <th scope="col" class="text-center">Long</th>
+                      <th scope="col" class="text-center">Lg</th>
                       <th scope="col" class="text-center">Sack</th>
                     </tr>
                   </thead>
@@ -182,7 +182,7 @@
                       <th scope="col" class="text-center">Loss</th>
                       <th scope="col" class="text-center">Net</th>
                       <th scope="col" class="text-center">TD</th>
-                      <th scope="col" class="text-center">Lg.</th>
+                      <th scope="col" class="text-center">Lg</th>
                       <th scope="col" class="text-center">Avg.</th>
                     </tr>
                   </thead>
@@ -203,7 +203,7 @@
                       <th scope="col" class="text-center">Loss</th>
                       <th scope="col" class="text-center">Net</th>
                       <th scope="col" class="text-center">TD</th>
-                      <th scope="col" class="text-center">Lg.</th>
+                      <th scope="col" class="text-center">Lg</th>
                       <th scope="col" class="text-center">Avg.</th>
                     </tr>
                   </thead>
@@ -312,36 +312,33 @@
             <a class="nav-item" id="AwayDefense_button" data-target="AwayDefense"></a>
           </ul>
           
-          <div class="navbar-toggle">Toggle Menu</div>
-          <!--
-          <select id="defense-select" class="ui-tabs-select hide-on-large" onchange="update('defense-select')">
-            <option value="#HomeDefense" id="HomeDefense_option"></option>
-            <option value="#AwayDefense" id="AwayDefense_option"></option>
+          <select class="nav-select navbar-toggle">
+            <option value="HomeDefense" id="HomeDefense_option"></option>
+            <option value="AwayDefense" id="AwayDefense_option"></option>
           </select>
-          -->
 
           <section id="HomeDefense" class="content active">
             <h5 class="sub-heading"></h5>
             <table id="DefenseTableH" class="sidearm-table overall-stats highlight-hover">
               <thead>
                 <tr role="row">
-                  <th scope="col" class="text-center">##</th>
+                  <th scope="col" class="text-center">#</th>
                   <th scope="col" class="text-center">Player</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">Solo</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">Ast</th>
+                  <th scope="col" class="text-center hide-on-medium-down">Solo</th>
+                  <th scope="col" class="text-center hide-on-medium-down">Ast</th>
                   <th scope="col" class="text-center">Tot</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">TFL/Yds</th>
+                  <th scope="col" class="text-center hide-on-medium-down">TFL/Yds</th>
                   <th scope="col" class="text-center hide-on-medium">TFL</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">Sack/Yds</th>
+                  <th scope="col" class="text-center hide-on-medium-down">Sack/Yds</th>
                   <th scope="col" class="text-center hide-on-medium">Sacks</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">FF</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">FR-Yds</th>
+                  <th scope="col" class="text-center hide-on-medium-down">FF</th>
+                  <th scope="col" class="text-center hide-on-medium-down">FR-Yds</th>
                   <th scope="col" class="text-center hide-on-medium">Fumbl</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">INT</th>
+                  <th scope="col" class="text-center hide-on-medium-down">INT</th>
                   <th scope="col" class="text-center hide-on-medium">INT</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">BrUp</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">Blkd</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">QH</th>
+                  <th scope="col" class="text-center hide-on-medium-down">BrUp</th>
+                  <th scope="col" class="text-center hide-on-medium-down">Blkd</th>
+                  <th scope="col" class="text-center hide-on-medium-down">QH</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -353,23 +350,23 @@
             <table id="DefenseTableV" class="sidearm-table overall-stats highlight-hover">
               <thead>
                 <tr role="row">
-                  <th scope="col" class="text-center">##</th>
+                  <th scope="col" class="text-center">#</th>
                   <th scope="col" class="text-center">Player</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">Solo</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">Ast</th>
+                  <th scope="col" class="text-center hide-on-medium-down">Solo</th>
+                  <th scope="col" class="text-center hide-on-medium-down">Ast</th>
                   <th scope="col" class="text-center">Tot</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">TFL/Yds</th>
+                  <th scope="col" class="text-center hide-on-medium-down">TFL/Yds</th>
                   <th scope="col" class="text-center hide-on-medium">TFL</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">Sack/Yds</th>
+                  <th scope="col" class="text-center hide-on-medium-down">Sack/Yds</th>
                   <th scope="col" class="text-center hide-on-medium">Sacks</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">FF</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">FR-Yds</th>
+                  <th scope="col" class="text-center hide-on-medium-down">FF</th>
+                  <th scope="col" class="text-center hide-on-medium-down">FR-Yds</th>
                   <th scope="col" class="text-center hide-on-medium">Fumbl</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">INT</th>
+                  <th scope="col" class="text-center hide-on-medium-down">INT</th>
                   <th scope="col" class="text-center hide-on-medium">INT</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">BrUp</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">Blkd</th>
-                  <th scope="col" class="text-center hide-on-x-small-down">QH</th>
+                  <th scope="col" class="text-center hide-on-medium-down">BrUp</th>
+                  <th scope="col" class="text-center hide-on-medium-down">Blkd</th>
+                  <th scope="col" class="text-center hide-on-medium-down">QH</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -397,7 +394,7 @@
                       <th class="text-center">Long</th>
                       <th class="text-center">In. 20</th>
                       <th class="text-center">TB</th>
-                      <th class="text-center">50+ Yds.</th>
+                      <th class="text-center hide-on-medium-down">50+ Yds.</th>
                     </tr>
                   </thead>
                   <tbody></tbody>
@@ -418,7 +415,7 @@
                       <th class="text-center">Long</th>
                       <th class="text-center">In. 20</th>
                       <th class="text-center">TB</th>
-                      <th class="text-center">50+ Yds.</th>
+                      <th class="text-center hide-on-medium-down">50+ Yds.</th>
                     </tr>
                   </thead>
                   <tbody></tbody>
@@ -439,7 +436,7 @@
                       <th></th>
                       <th class="text-center" colspan="3">Punts</th>
                       <th class="text-center" colspan="3">Kickoffs</th>
-                      <th class="text-center" colspan="3">Interceptions</th>
+                      <th class="text-center hide-on-medium-down" colspan="3">Interceptions</th>
                     </tr>
                     <tr>
                       <th></th>
@@ -449,9 +446,9 @@
                       <th class="text-center">Ret.</th>
                       <th class="text-center">Yds.</th>
                       <th class="text-center">Lg</th>
-                      <th class="text-center">Ret.</th>
-                      <th class="text-center">Yds.</th>
-                      <th class="text-center">Lg</th>
+                      <th class="text-center hide-on-medium-down">Ret.</th>
+                      <th class="text-center hide-on-medium-down">Yds.</th>
+                      <th class="text-center hide-on-medium-down">Lg</th>
                     </tr>
                   </thead>
                   <tbody></tbody>
@@ -468,7 +465,7 @@
                       <th></th>
                       <th class="text-center" colspan="3">Punts</th>
                       <th class="text-center" colspan="3">Kickoffs</th>
-                      <th class="text-center" colspan="3">Interceptions</th>
+                      <th class="text-center hide-on-medium-down" colspan="3">Interceptions</th>
                     </tr>
                     <tr>
                       <th></th>
@@ -478,9 +475,9 @@
                       <th class="text-center">Ret.</th>
                       <th class="text-center">Yds.</th>
                       <th class="text-center">Lg</th>
-                      <th class="text-center">Ret.</th>
-                      <th class="text-center">Yds.</th>
-                      <th class="text-center">Lg</th>
+                      <th class="text-center hide-on-medium-down">Ret.</th>
+                      <th class="text-center hide-on-medium-down">Yds.</th>
+                      <th class="text-center hide-on-medium-down">Lg</th>
                     </tr>
                   </thead>
                   <tbody></tbody>

@@ -24,11 +24,8 @@ function buildDefense(game) {
         { stats: game.gamePlayerStatsVisitingTeam, body: $('#DefenseTableV tbody')}
     ];
 
-    $('#HomeDefense_button').html(game.HomeTeam.Name);
-    $('#AwayDefense_button').html(game.VisitingTeam.Name);
-
-    $('#HomeDefense h5').html(`${game.HomeTeam.Name} - Individual Defense Stats`);
-    $('#AwayDefense h5').html(`${game.VisitingTeam.Name} - Individual Defense Stats`);
+    $('#HomeDefense_button, #HomeDefense_option, #HomeDefense h5').html(game.HomeTeam.Name);
+    $('#AwayDefense_button, #AwayDefense_option, #AwayDefense h5').html(game.VisitingTeam.Name);
 
     teams.forEach(team => {
 
@@ -47,54 +44,27 @@ function buildDefense(game) {
                 team.body.append($('<tr>').append(
                     $('<td>').html(player.number).addClass("text-center"),
                     $('<th>').html(`${player.Surname} ${player.Name}.`).addClass("text-center"),
-                    $('<td>').html(player.TackleSolo).addClass("text-center hide-on-x-small-down"),
-                    $('<td>').html(player.TackleAssist).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(player.TackleSolo).addClass("text-center hide-on-medium-down"),
+                    $('<td>').html(player.TackleAssist).addClass("text-center hide-on-medium-down"),
                     $('<td>').html(player.TotalTackle).addClass("text-center"),
-                    $('<td>').html(`${player.TackleForLossNumber}/${player.TackleForLossYds}`).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(`${player.TackleForLossNumber}/${player.TackleForLossYds}`).addClass("text-center hide-on-medium-down"),
                     $('<td>').html(`${player.TackleForLossNumber}/${player.TackleForLossYds}`).addClass("text-center hide-on-medium"),
-                    $('<td>').html(`${player.TotalSack}/${player.GainedSackYds}`).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(`${player.TotalSack}/${player.GainedSackYds}`).addClass("text-center hide-on-medium-down"),
                     $('<td>').html(player.TotalSack).addClass("text-center hide-on-medium"),
-                    $('<td>').html(player.FumbleForced).addClass("text-center hide-on-x-small-down"),
-                    $('<td>').html(`${player.FumbleRecoveredNumber}-${player.FumbleReturnedYds}`).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(player.FumbleForced).addClass("text-center hide-on-medium-down"),
+                    $('<td>').html(`${player.FumbleRecoveredNumber}-${player.FumbleReturnedYds}`).addClass("text-center hide-on-medium-down"),
                     $('<td>').html(`${player.FumbleRecoveredNumber}-${player.FumbleReturnedYds}`).addClass("text-center hide-on-medium"),
-                    $('<td>').html(player.InterceptNumber).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(player.InterceptNumber).addClass("text-center hide-on-medium-down"),
                     $('<td>').html(player.InterceptNumber).addClass("text-center hide-on-medium"),
-                    $('<td>').html(player.BrokenUpNumber).addClass("text-center hide-on-x-small-down"),
-                    $('<td>').html(player.BlockedKickNumber).addClass("text-center hide-on-x-small-down"),
-                    $('<td>').html(player.QBHurryNumber).addClass("text-center hide-on-x-small-down"),
+                    $('<td>').html(player.BrokenUpNumber).addClass("text-center hide-on-medium-down"),
+                    $('<td>').html(player.BlockedKickNumber).addClass("text-center hide-on-medium-down"),
+                    $('<td>').html(player.QBHurryNumber).addClass("text-center hide-on-medium-down"),
                 ));
 
             }
         });
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function buildST(game){
     buildPunting(game)
@@ -355,7 +325,7 @@ function buildPunting(game) {
                     $('<td>').html(player.LongestPunt).addClass('text-center'),
                     $('<td>').html(player.PuntInsideRedZone).addClass('text-center'),
                     $('<td>').html(player.PuntTouchback).addClass('text-center'),
-                    $('<td>').html(player.PuntMoreThan50).addClass('text-center')
+                    $('<td>').html(player.PuntMoreThan50).addClass('text-center hide-on-medium-down')
                 ));
 
                 footerObject.PuntNumber += player.PuntNumber;
@@ -375,7 +345,7 @@ function buildPunting(game) {
             $('<td>').html(footerObject.LongestPunt).addClass('text-center'),
             $('<td>').html(footerObject.PuntInsideRedZone).addClass('text-center'),
             $('<td>').html(footerObject.PuntTouchback).addClass('text-center'),
-            $('<td>').html(footerObject.PuntMoreThan50).addClass('text-center')
+            $('<td>').html(footerObject.PuntMoreThan50).addClass('text-center hide-on-medium-down')
         ));
     });
 }
@@ -415,9 +385,9 @@ function buildAllRet(game) {
                     $('<td>').html(player.KickReturnNumber).addClass('text-center'),
                     $('<td>').html(player.KickReturnYds).addClass('text-center'),
                     $('<td>').html(checkLongest(player.LongestKickReturn, game)).addClass('text-center'),
-                    $('<td>').html(player.InterceptNumber).addClass('text-center'),
-                    $('<td>').html(player.InterceptYds).addClass('text-center'),
-                    $('<td>').html(checkLongest(player.LongestIntercept, game)).addClass('text-center'),
+                    $('<td>').html(player.InterceptNumber).addClass('text-center hide-on-medium-down'),
+                    $('<td>').html(player.InterceptYds).addClass('text-center hide-on-medium-down'),
+                    $('<td>').html(checkLongest(player.LongestIntercept, game)).addClass('text-center hide-on-medium-down'),
                    
                 ));
                 
@@ -442,9 +412,9 @@ function buildAllRet(game) {
             $('<td>').html(footerObject.KickReturnNumber).addClass('text-center'),
             $('<td>').html(footerObject.KickReturnYds).addClass('text-center'),
             $('<td>').html(footerObject.LongestKickReturn).addClass('text-center'),
-            $('<td>').html(footerObject.InterceptNumber).addClass('text-center'),
-            $('<td>').html(footerObject.InterceptYds).addClass('text-center'),
-            $('<td>').html(footerObject.LongestIntercept).addClass('text-center'),
+            $('<td>').html(footerObject.InterceptNumber).addClass('text-center hide-on-medium-down'),
+            $('<td>').html(footerObject.InterceptYds).addClass('text-center hide-on-medium-down'),
+            $('<td>').html(footerObject.LongestIntercept).addClass('text-center hide-on-medium-down'),
         ));
     });
 }
