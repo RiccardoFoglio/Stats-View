@@ -43,7 +43,7 @@ function buildDefense(game) {
                 )  {
                 team.body.append($('<tr>').append(
                     $('<td>').html(player.number).addClass("text-center"),
-                    $('<th>').html(`${player.Surname} ${player.Name}.`).addClass("text-center"),
+                    $('<th>').html(`${player.Surname} ${player.Name}`).addClass("text-center"),
                     $('<td>').html(player.TackleSolo).addClass("text-center hide-on-medium-down"),
                     $('<td>').html(player.TackleAssist).addClass("text-center hide-on-medium-down"),
                     $('<td>').html(player.TotalTackle).addClass("text-center"),
@@ -101,7 +101,7 @@ function buildPassing(game) {
         team.stats.forEach(player => {
             if (player.PassAttempted !== 0) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<th>').html(`${player.Surname} ${player.Name}`),
                     $('<td>').html(player.PassCompleted).addClass('text-center'),
                     $('<td>').html(player.PassAttempted).addClass('text-center'),
                     $('<td>').html(player.PassYds).addClass('text-center'),
@@ -157,7 +157,7 @@ function buildRushing(game) {
         team.stats.forEach(player => {
             if (player.RushNumber !== 0) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<th>').html(`${player.Surname} ${player.Name}`),
                     $('<td>').html(player.RushNumber).addClass('text-center'),
                     $('<td>').html(player.GainedRushYds).addClass('text-center'),
                     $('<td>').html(player.LossRushYds).addClass('text-center'),
@@ -210,11 +210,11 @@ function buildReceiving(game) {
         team.stats.forEach(player => {
             if (player.ReceiveNumber !== 0) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<th>').html(`${player.Surname} ${player.Name}`),
                     $('<td>').html(player.ReceiveNumber).addClass('text-center'),
                     $('<td>').html(player.ReceiveYds).addClass('text-center'),
-                    $('<td>').html(player.LongestReceive).addClass('text-center'),
                     $('<td>').html(player.ReceiveTD).addClass('text-center'),
+                    $('<td>').html(player.LongestReceive).addClass('text-center'),
                 ));
 
                 footerObject.ReceiveNumber += player.ReceiveNumber;
@@ -262,7 +262,7 @@ function buildAllPurp(game) {
                 player.InterceptYds !== 0
                 ) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<th>').html(`${player.Surname} ${player.Name}`),
                     $('<td>').html(player.RushYds).addClass('text-center'),
                     $('<td>').html(player.ReceiveYds).addClass('text-center'),
                     $('<td>').html(player.KickReturnYds).addClass('text-center'),
@@ -318,7 +318,7 @@ function buildPunting(game) {
         team.stats.forEach(player => {
             if (player.PuntNumber !== 0) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<th>').html(`${player.Surname} ${player.Name}`),
                     $('<td>').html(player.PuntNumber).addClass('text-center'),
                     $('<td>').html(player.PuntYds).addClass('text-center'),
                     $('<td>').html(getAverage(player.PuntYds, player.PuntNumber)).addClass('text-center'),
@@ -378,7 +378,7 @@ function buildAllRet(game) {
                 player.InterceptNumber !== 0
                 ) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<th>').html(`${player.Surname} ${player.Name}`),
                     $('<td>').html(player.PuntReturnNumber).addClass('text-center'),
                     $('<td>').html(player.PuntReturnYds).addClass('text-center'),
                     $('<td>').html(checkLongest(player.LongestPuntReturn, game)).addClass('text-center'),
@@ -463,7 +463,7 @@ function buildKickoffs(game) {
         team.stats.forEach(player => {
             if (player.KickNumber !== 0) {
                 team.body.append($('<tr>').append(
-                    $('<th>').html(`${player.Surname} ${player.Name}.`),
+                    $('<th>').html(`${player.Surname} ${player.Name}`),
                     $('<td>').html(player.KickNumber).addClass('text-center'),
                     $('<td>').html(player.KickYds).addClass('text-center'),
                     $('<td>').html(player.KickTouchback).addClass('text-center'),

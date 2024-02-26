@@ -7,8 +7,9 @@ import buildPlays from "../js/plays.js";
 import {toggleCollapseByWidth, sortTable} from "../js/auxiliaries.js";
 
 
-const filegame = "SEA @ GIT - 1705278755.game";
+//const filegame = "SEA @ GIT - 1705278755.game";
 //const filegame = "GIT @ RED - 1708103843.game";
+const filegame = "RHI @ GIT - 1708985993.game";
 
 fetch("../data/" + filegame)
   .then(response => response.json())
