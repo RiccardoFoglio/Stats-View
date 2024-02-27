@@ -1,4 +1,4 @@
-import {getAverage, checkLongest, getQuarter, getTime} from '../js/auxiliaries.js'
+import {getAverage, checkLongest, getQuarter, getTime} from 'js/auxiliaries.js'
 
 
 export default function buildIndStats(game){

@@ -1,10 +1,10 @@
-import buildBoxScore from "../js/boxscore.js";
-import buildRoster from "../js/roster.js";
-import buildTeamStats from "../js/teamStats.js";
-import buildIndStats from "../js/indStats.js";
-import buildDriveChart from "../js/driveChart.js";
-import buildPlays from "../js/plays.js";
-import {toggleCollapseByWidth, sortTable} from "../js/auxiliaries.js";
+import buildBoxScore from "js/boxscore.js";
+import buildRoster from "js/roster.js";
+import buildTeamStats from "js/teamStats.js";
+import buildIndStats from "js/indStats.js";
+import buildDriveChart from "js/driveChart.js";
+import buildPlays from "js/plays.js";
+import {toggleCollapseByWidth, sortTable} from "js/auxiliaries.js";
 
 
 //const filegame = "SEA @ GIT - 1705278755.game";

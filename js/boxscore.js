@@ -1,4 +1,4 @@
-import {getFormattedDate, getFormattedTime, getDuration, getQuarter} from '../js/auxiliaries.js'
+import {getFormattedDate, getFormattedTime, getDuration, getQuarter} from 'js/auxiliaries.js'
 
 export default function buildBoxScore(game){
   
