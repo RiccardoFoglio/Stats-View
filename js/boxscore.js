@@ -1,13 +1,13 @@
-import {getFormattedDate, getFormattedTime, getDuration, getQuarter} from 'js/auxiliaries.js'
+import {getFormattedDate, getFormattedTime, getDuration, getQuarter} from '../js/auxiliaries.js'
 
 export default function buildBoxScore(game){
   
     $(document).ready(function(){
 
     //box-score graphic
-    $("#awayLogo").attr("src", '../logos/'+ game.VisitingTeam.Code +'.png');
+    $("#awayLogo").attr("src", 'logos/'+ game.VisitingTeam.Code +'.png');
     $("#awayLogo").attr("alt", game.VisitingTeam.Name);
-    $("#homeLogo").attr("src", '../logos/'+ game.HomeTeam.Code +'.png');
+    $("#homeLogo").attr("src", 'logos/'+ game.HomeTeam.Code +'.png');
     $("#homeLogo").attr("alt", game.HomeTeam.Name);
 
     $("#homeScore").html(game.gameTeamStatsHomeTeam.ScoreTotal);

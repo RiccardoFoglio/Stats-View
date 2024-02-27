@@ -1,4 +1,4 @@
-import {getTime} from 'js/auxiliaries.js'
+import {getTime} from '../js/auxiliaries.js'
 
 export default function buildDriveChart(game){
   $(document).ready(function(){

@@ -1,17 +1,22 @@
-import buildBoxScore from "js/boxscore.js";
-import buildRoster from "js/roster.js";
-import buildTeamStats from "js/teamStats.js";
-import buildIndStats from "js/indStats.js";
-import buildDriveChart from "js/driveChart.js";
-import buildPlays from "js/plays.js";
-import {toggleCollapseByWidth, sortTable} from "js/auxiliaries.js";
+import buildBoxScore from "../js/boxscore.js";
+import buildRoster from "../js/roster.js";
+import buildTeamStats from "../js/teamStats.js";
+import buildIndStats from "../js/indStats.js";
+import buildDriveChart from "../js/driveChart.js";
+import buildPlays from "../js/plays.js";
+import {toggleCollapseByWidth, sortTable} from "../js/auxiliaries.js";
 
 
 //const filegame = "SEA @ GIT - 1705278755.game";
 //const filegame = "GIT @ RED - 1708103843.game";
-const filegame = "RHI @ GIT - 1708985993.game";
+//const filegame = "RHI @ GIT - 1708985993.game";
 
-fetch("../data/" + filegame)
+const test = true;
+
+const urlParams = new URLSearchParams(window.location.search);
+const url = test ? "data/RHI @ GIT - 1708985993.game" : `${urlParams.get('game')}.game` ;
+
+fetch(url)
   .then(response => response.json())
   .then(data => {
     // Do something with the JSON data
