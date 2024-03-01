@@ -99,16 +99,6 @@
   font-weight: bold;
 }
 
-.sidearm-table tbody tr td:last-child,
-.sidearm-table tbody tr th:last-child {
-  border-right: none;
-}
-
-.sidearm-table tbody tr td:first-child,
-.sidearm-table tbody tr th:first-child {
-  border-left: none;
-}
-
 .sidearm-table tbody tr th[scope=colgroup] {
   background-color: #e5e5e5;
   font-weight: bold;
@@ -127,19 +117,11 @@
   background-color: #e5e5e5;
 }
 
-.sidearm-table tfoot tr td:last-child,
-.sidearm-table tfoot tr th:last-child {
-  border-right: none;
-}
-
-.sidearm-table tfoot tr td:first-child,
-.sidearm-table tfoot tr th:first-child {
-  border-left: none;
-}
-
-.sidearm-table tfoot tr {
+.sidearm-table:not(.special-stats) tfoot tr {
   background-color: #e5e5e5;
   border-top: 1px solid white;
+  border-bottom: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
 }
 
 .sidearm-table tfoot th,
