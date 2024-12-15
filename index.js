@@ -6,7 +6,7 @@ import buildDriveChart from "../js/driveChart.js";
 import buildPlays from "../js/plays.js";
 import {toggleCollapseByWidth, sortTable} from "../js/auxiliaries.js";
 
-const test = true;
+const test = false;
 
 const urlParams = new URLSearchParams(window.location.search);
 const url = test ? "data/1732089756.game" : `${urlParams.get('game')}.game` ;

@@ -179,30 +179,24 @@ function buildScoringSummary(game){
                     .replace("rush for", "runs")
                     .replace("yards", "yd").replace("yard", "yd")
                     
-                let scoreAction = scoreevent.slice(0, scoreevent.indexOf('yd')+2)
+                //let scoreAction = scoreevent.slice(0, scoreevent.indexOf('yd')+2)
+                let scoreAction;
 
-                //let holdedindex = scoreevent.indexOf(" (holded by");
-                //let longsnappedindex = scoreevent.indexOf(" (long snapped by");
-                //if (holdedindex !== -1 || longsnappedindex !== -1) {
-                //    let minindex = -1;
-                //    if (holdedindex === -1) {
-                //        minindex = longsnappedindex;
-                //    } else if (longsnappedindex === -1) {
-                //        minindex = holdedindex;
-                //    } else {
-                //        minindex = Math.min(holdedindex, longsnappedindex);
-                //    }
-                //    let cancelholdedsnapped = scoreevent.substring(minindex, scoreevent.length - minindex);
-                //    scoreevent = scoreevent.replace(cancelholdedsnapped, "");
-                //}
-                //let possibleposchg = scoreevent.indexOf(" (POSSESSION CHANGE");
-                //if (possibleposchg !== -1) {
-                //    let cancelposchg = scoreevent.substring(possibleposchg, scoreevent.length - possibleposchg);
-                //    scoreevent = scoreevent.replace(cancelposchg, "");
-                //}
-
+               if (scoreevent.includes("kick") && scoreevent.includes("returns")) {
+                    // Special condition for kick-return plays
+                    let kicker = scoreevent.substring(0, scoreevent.indexOf("kick")).trim();
+                    let returner = scoreevent.match(/, ([A-Za-z\.\s]+) returns/)[1].trim();
+                    console.log(returner)
+                    let returnYards = scoreevent.substring(scoreevent.indexOf("returns") + 8).match(/\d+ yd/)[0];
+                    scoreAction = `Kickoff returned by ${returner} for ${returnYards}`;
+                } else {
+                    // Default behavior
+                    scoreAction = scoreevent.slice(0, scoreevent.indexOf('yd') + 2);
+                }
+   
+                // Ripamonti Die. kick 41 yards to the GIT 19, Choupo Fotso Ant. returns 71 yards to the RHI 0 (POSSESSION CHANGE, Time: 04:32), TOUCHDOWN (KICK RETURN TD) (scored by GIT) (Time: 04:32).
+  
                 let score;
-
                 let indexarrayofpattry = -1;
                 for (let j = i + 2; j < game.PlayByPlay.length; j++) {
                     if (game.PlayByPlay[j].Event.includes("PAT Try")) {         // found PAT after score
@@ -222,23 +216,6 @@ function buildScoringSummary(game){
                         if (game.PlayByPlay[indexarrayofpattry + 1].Event.startsWith("Score: ")) { // PAT Scored
 
                             scorePAT = game.PlayByPlay[indexarrayofpattry].Event;
-
-                            //let holdedindex2 = scorePAT.indexOf(" (holded by");
-                            //let longsnappedindex2 = scorePAT.indexOf(" (long snapped by");
-                            //if (holdedindex2 !== -1 || longsnappedindex2 !== -1) {
-                            //    let minindex2 = -1;
-                            //    if (holdedindex2 === -1) {
-                            //        minindex2 = longsnappedindex2;
-                            //    } else if (longsnappedindex2 === -1) {
-                            //        minindex2 = holdedindex2;
-                            //    } else {
-                            //        minindex2 = Math.min(holdedindex2, longsnappedindex2);
-                            //    }
-                            //    let cancelholdedsnapped2 = scoreevent.substring(minindex2, scoreevent.length - minindex2);
-                            //    
-                            //    scorePAT = scorePAT.replace(cancelholdedsnapped2, "");
-                            //}
-
                             scorePAT = scorePAT.replace('.', '');
                             scorePAT = scorePAT.replace(' (Passer), ', ', ');
 
@@ -251,22 +228,6 @@ function buildScoringSummary(game){
                         } else { // PAT not Scored
                             
                             scorePAT = game.PlayByPlay[indexarrayofpattry].Event;
-
-                            //let holdedindex3 = scorePAT.indexOf(" (holded by");
-                            //let longsnappedindex3 = scorePAT.indexOf(" (long snapped by");
-                            //if (holdedindex3 !== -1 || longsnappedindex3 !== -1) {
-                            //    let minindex3 = -1;
-                            //    if (holdedindex3 === -1) {
-                            //        minindex3 = longsnappedindex3;
-                            //    } else if (longsnappedindex3 === -1) {
-                            //        minindex3 = holdedindex3;
-                            //    } else {
-                            //        minindex3 = Math.min(holdedindex3, longsnappedindex3);
-                            //    }
-                            //    let cancelholdedsnapped3 = scorePAT.substring(minindex3, scorePAT.length - minindex3);
-                            //    scorePAT = scorePAT.replace(cancelholdedsnapped3, "");
-                            //}
-
                             scorePAT = scorePAT.replace(' (Passer)', '');
                             scorePAT = scorePAT.replace(`(${game.HomeTeam.Code})`, '');
                             scorePAT = scorePAT.replace(`(${game.VisitingTeam.Code})`, '');
